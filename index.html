@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevated Pro Detailing | Premium Auto Care</title>
+  <meta name="description" content="Elevated Pro Detailing offers premium exterior detailing, interior detailing, signature restore packages, and add-ons. Call 262-490-7620 to book." />
+  <link rel="icon" href="logo.png" />
+  <style>
+    :root {
+      --black: #050505;
+      --panel: #0c0c0c;
+      --gold: #d6a83c;
+      --gold-light: #f5d879;
+      --text: #f7f3e8;
+      --muted: #c9c1ad;
+      --line: rgba(214,168,60,.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(214,168,60,.18), transparent 35%),
+        linear-gradient(180deg, #000 0%, #080808 45%, #000 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,.78);
+      border-bottom: 1px solid rgba(214,168,60,.25);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .nav img {
+      width: 260px;
+      max-width: 58vw;
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #080808;
+      font-weight: 800;
+      box-shadow: 0 0 28px rgba(214,168,60,.22);
+      transition: transform .2s ease, box-shadow .2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px rgba(214,168,60,.32);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--gold-light);
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,.74), rgba(0,0,0,.86)),
+        url("pricing-flyer.png") center top / cover no-repeat;
+      opacity: .34;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, #000 76%);
+      z-index: -1;
+    }
+
+    .hero-logo {
+      width: min(560px, 92%);
+      margin: 0 auto 26px;
+      display: block;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: .94;
+      margin: 0 0 22px;
+      color: var(--gold-light);
+      text-shadow: 0 0 24px rgba(214,168,60,.24);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.4vw, 23px);
+      line-height: 1.55;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--gold-light);
+      font-size: clamp(34px, 5vw, 52px);
+      margin: 0 0 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin: 0 auto;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--gold-light);
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .card .subtitle {
+      color: var(--muted);
+      min-height: 48px;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .price-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(214,168,60,.35);
+      color: var(--text);
+    }
+
+    .price-row strong {
+      color: var(--gold-light);
+      font-size: 24px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .feature {
+      border: 1px solid var(--gold);
+      background:
+        linear-gradient(90deg, rgba(214,168,60,.16), transparent),
+        rgba(0,0,0,.55);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: center;
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .feature img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(214,168,60,.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+    }
+
+    .addons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .addon {
+      border: 1px solid rgba(214,168,60,.45);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,.025);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .addon strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 24px;
+      margin-top: 8px;
+    }
+
+    .contact {
+      text-align: center;
+      border-top: 1px solid rgba(214,168,60,.25);
+      background: #030303;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at top, rgba(214,168,60,.12), transparent 42%),
+        rgba(255,255,255,.025);
+    }
+
+    .phone {
+      display: block;
+      color: var(--gold-light);
+      font-size: clamp(36px, 7vw, 68px);
+      font-weight: 900;
+      margin: 12px 0 20px;
+      letter-spacing: .02em;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 24px 0 34px;
+      background: #030303;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .cards,
+      .feature,
+      .addons {
+        grid-template-columns: 1fr;
+      }
+
+      .card .subtitle {
+        min-height: 0;
+      }
+
+      section {
+        padding: 44px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#top" aria-label="Elevated Pro Detailing Home">
+        <img src="logo.png" alt="Elevated Pro Detailing logo" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#addons">Add-ons</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="tel:2624907620">Call 262-490-7620</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <img class="hero-logo" src="logo.png" alt="Elevated Pro Detailing" />
+        <div class="eyebrow">Premium Auto Care</div>
+        <h1>Make Your Vehicle Feel Elevated</h1>
+        <p>Professional interior and exterior detailing with clean finishes, refreshed interiors, and careful service for cars, SUVs, and trucks.</p>
+        <div class="cta-row">
+          <a class="btn" href="tel:2624907620">Call to Book</a>
+          <a class="btn secondary" href="#pricing">View Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Detailing Services</h2>
+          <p>Choose a focused interior or exterior detail, or get the full reset with our Signature Restore package.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Exterior Detail</h3>
+            <p class="subtitle">Clean, glossy finish with safe wash methods.</p>
+            <ul>
+              <li>Hand wash and safe dry process</li>
+              <li>Deep wheel and tire cleaning</li>
+              <li>Streak-free finish for maximum shine</li>
+            </ul>
+            <div class="price-list">
+              <div class="price-row"><span>Sedan</span><strong>$50</strong></div>
+              <div class="price-row"><span>SUV</span><strong>$65</strong></div>
+              <div class="price-row"><span>Truck</span><strong>$75</strong></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Interior Detail</h3>
+            <p class="subtitle">Removes buildup and refreshes your interior.</p>
+            <ul>
+              <li>Full vacuum: seats, carpets, trunk</li>
+              <li>Surface wipe-down for dust, oils, and buildup</li>
+              <li>Crevice cleaning and light stain treatment</li>
+            </ul>
+            <div class="price-list">
+              <div class="price-row"><span>Sedan</span><strong>$70</strong></div>
+              <div class="price-row"><span>SUV</span><strong>$85</strong></div>
+              <div class="price-row"><span>Truck</span><strong>$95</strong></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Signature Restore</h3>
+            <p class="subtitle">Best value: complete interior and exterior reset.</p>
+            <ul>
+              <li>Deep interior cleaning and restoration</li>
+              <li>Full exterior wash and finish</li>
+              <li>Tire shine and final detail touches</li>
+            </ul>
+            <div class="price-list">
+              <div class="price-row"><span>Sedan</span><strong>$110</strong></div>
+              <div class="price-row"><span>SUV</span><strong>$130</strong></div>
+              <div class="price-row"><span>Truck</span><strong>$150</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="feature">
+          <div>
+            <div class="section-title" style="text-align:left;margin-bottom:18px;">
+              <h2>Pricing Flyer</h2>
+              <p>Use this as a quick reference for packages, add-ons, and contact info.</p>
+            </div>
+            <a class="btn" href="pricing-flyer.png" target="_blank" rel="noopener">Open Flyer</a>
+          </div>
+          <img src="pricing-flyer.png" alt="Elevated Pro Detailing pricing flyer" />
+        </div>
+      </div>
+    </section>
+
+    <section id="addons">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Add-ons</h2>
+          <p>Pick any two add-ons for $50.</p>
+        </div>
+
+        <div class="addons">
+          <div class="addon">Pet Hair Removal <strong>$20</strong></div>
+          <div class="addon">Heavy Stain Treatment <strong>$30</strong></div>
+          <div class="addon">Spray Wax <strong>$20</strong></div>
+          <div class="addon">Carpet Shampoo <strong>$30</strong></div>
+          <div class="addon">Odor Eliminator Bomb <strong>$30</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div class="section-title" style="margin-bottom:0;">
+            <h2>Contact Us</h2>
+            <p>Ready to book your detail? Call or message Elevated Pro Detailing today.</p>
+          </div>
+          <a class="phone" href="tel:2624907620">262-490-7620</a>
+          <div class="cta-row">
+            <a class="btn" href="tel:2624907620">Call Now</a>
+            <a class="btn secondary" href="https://www.facebook.com/ElevatedProDetailing" target="_blank" rel="noopener">@ElevatedProDetailing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Elevated Pro Detailing · Elevatedprodetailing.com
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
