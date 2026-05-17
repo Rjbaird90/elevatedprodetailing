@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Elevated Pro Detailing</title>
+
+  <style>
+    body{
+      margin:0;
+      background:#050505;
+      color:white;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    header{
+      padding:20px;
+      border-bottom:1px solid rgba(214,168,60,.3);
+      background:#000;
+      text-align:center;
+    }
+
+    h1{
+      color:#c9a227;
+      font-size:52px;
+      margin:10px 0;
+      letter-spacing:2px;
+    }
+
+    .sub{
+      color:#c9c1ad;
+      margin-bottom:20px;
+    }
+
+    .back-btn{
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:999px;
+      border:1px solid #c9a227;
+      color:#c9a227;
+      text-decoration:none;
+      margin-top:10px;
+    }
+
+    .gallery{
+      width:min(1200px, calc(100% - 30px));
+      margin:50px auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:22px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:18px;
+      border:1px solid rgba(214,168,60,.35);
+      box-shadow:0 20px 50px rgba(0,0,0,.45);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#999;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Gallery</h1>
+  <div class="sub">
+    Before & after transformations from Elevated Pro Detailing
+  </div>
+
+  <a class="back-btn" href="index.html">
+    Back to Home
+  </a>
+</header>
+
+<section class="gallery">
+
+  <img src="beforeafter1.png" alt="Detailing before and after">
+
+  <img src="review1.png" alt="Customer review">
+
+</section>
+
+<footer>
+  Elevated Pro Detailing
+</footer>
+
+</body>
+</html>
