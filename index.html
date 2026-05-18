@@ -324,6 +324,7 @@
     }
 
     @media (max-width: 860px) {
+
   .nav {
     flex-direction: column;
     padding: 14px 0;
@@ -336,22 +337,21 @@
     gap: 12px;
     font-size: 12px;
   }
+
+  .cards,
+  .feature,
+  .addons {
+    grid-template-columns: 1fr;
+  }
+
+  .card .subtitle {
+    min-height: 0;
+  }
+
+  section {
+    padding: 44px 0;
+  }
 }
-
-      .cards,
-      .feature,
-      .addons {
-        grid-template-columns: 1fr;
-      }
-
-      .card .subtitle {
-        min-height: 0;
-      }
-
-      section {
-        padding: 44px 0;
-      }
-    }
   </style>
 </head>
 <body>
