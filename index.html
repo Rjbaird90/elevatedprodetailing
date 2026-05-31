@@ -307,38 +307,43 @@
         rgba(255,255,255,.025);
     }
 
-    .phone {
-      display: block;
-      color: var(--gold-light);
-      font-size: clamp(36px, 7vw, 68px);
-      font-weight: 900;
-      margin: 12px 0 20px;
-      letter-spacing: .02em;
-    }
-    .payments {
+.phone {
+  display: block;
+  color: var(--gold-light);
+  font-size: clamp(36px, 7vw, 68px);
+  font-weight: 900;
+  margin: 12px 0 20px;
+  letter-spacing: .02em;
+}
+
+/* Payment Methods */
+.payments {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .payments p {
   color: #c9a227;
   font-weight: 700;
-  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
-.payment-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 42px;
-  color: #c9a227;
-  margin-bottom: 10px;
+.payment-logos {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.payment-labels {
-  color: #c9c1ad;
+footer {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px 0 34px;
+  background: #030303;
   font-size: 14px;
 }
 
