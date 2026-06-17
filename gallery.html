@@ -51,11 +51,17 @@
     }
 
     .gallery img{
-      width:100%;
-      border-radius:18px;
-      border:1px solid rgba(214,168,60,.35);
-      box-shadow:0 20px 50px rgba(0,0,0,.45);
-    }
+  width:100%;
+  border-radius:18px;
+  border:1px solid rgba(214,168,60,.35);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.gallery img:hover{
+  transform:scale(1.02);
+}
 
     footer{
       text-align:center;
