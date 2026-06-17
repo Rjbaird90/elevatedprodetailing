@@ -80,35 +80,76 @@
 
 <section class="gallery">
 
- <a href="Mike Before & After2.png" target="_blank">
-  <img src="Mike Before & After2.png" alt="Before and after detailing">
-</a>
+  <img
+    src="Mike Before & After2.png"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
-<a href="Tasha Before & After1.png" target="_blank">
-  <img src="Tasha Before & After1.png" alt="Before and after detailing">
-</a>
+  <img
+    src="Tasha Before & After1.png"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
-  <a href="Before & After 4 pic2.png" target="_blank">
-  <img src="Before & After 4 pic2.png" alt="Before and after detailing">
-</a>
+  <img
+    src="Before & After 4 pic2.png"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
-  <a href="Between Seats B&A.jpg" target="_blank">
-  <img src="Between Seats B&A.jpg" alt="Before and after detailing">
-</a>
+  <img
+    src="Between Seats B&A.jpg"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
-  <a href="Before & After 4 pic Cheryl.jpg" target="_blank">
-  <img src="Before & After 4 pic Cheryl.jpg" alt="Before and after detailing">
-</a>
+  <img
+    src="Before & After 4 pic Cheryl.jpg"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
-  <a href="Before & After Work Van2.png" target="_blank">
-  <img src="Before & After Work Van2.png" alt="Before and after detailing">
-</a>
+  <img
+    src="Before & After Work Van2.png"
+    alt="Before and after detailing"
+    onclick="openLightbox(this.src)">
 
 </section>
 
 <footer>
   Elevated Pro Detailing
 </footer>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<style>
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:95%;
+  border-radius:18px;
+  border:2px solid #c9a227;
+}
+</style>
+
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox').style.display='flex';
+  document.getElementById('lightbox-img').src=src;
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+}
+</script>
 
 </body>
 </html>
