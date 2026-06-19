@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery | Elevated Pro Detailing</title>
 
+  @media(max-width:900px){
+
+  .nav{
+    flex-direction:column;
+    gap:15px;
+    padding:15px 0;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    font-size:12px;
+  }
+
+}
+  
   <style>
     body{
       margin:0;
@@ -32,15 +49,50 @@
       margin-bottom:20px;
     }
 
-    .back-btn{
-      display:inline-block;
-      padding:12px 22px;
-      border-radius:999px;
-      border:1px solid #c9a227;
-      color:#c9a227;
-      text-decoration:none;
-      margin-top:10px;
-    }
+    .nav{
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.logo{
+  width:250px;
+  max-width:58vw;
+  display:block;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#c9c1ad;
+}
+
+.nav-links a:hover{
+  color:#c9a227;
+}
+
+.call-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#c9a227,#996515);
+  color:#000;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.hero{
+  text-align:center;
+  padding:70px 20px 30px;
+}
 
     .gallery{
       width:min(1200px, calc(100% - 30px));
@@ -74,16 +126,36 @@
 <body>
 
 <header>
+  <div class="wrap nav">
+
+    <a href="index.html">
+      <img src="new elevated 2.png" alt="Elevated Pro Detailing" class="logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#addons">Add-ons</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="Appointment.html">Book Appointment</a>
+    </nav>
+
+    <a class="call-btn" href="tel:2624907620">
+      Call 262-490-7620
+    </a>
+
+  </div>
+</header>
+
+<section class="hero">
   <h1>Gallery</h1>
+
   <div class="sub">
     Before & after transformations from Elevated Pro Detailing
   </div>
-
-  <a class="back-btn" href="index.html">
-    Back to Home
-  </a>
-</header>
-
+</section>
 <section class="gallery">
 
   <img
