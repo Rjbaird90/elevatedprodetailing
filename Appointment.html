@@ -1,2 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | Elevated Pro Detailing</title>
+  <meta name="description" content="Book an appointment with Elevated Pro Detailing in Fort Atkinson, WI. Schedule premium interior, exterior, and paint correction detailing services." />
+  <link rel="icon" href="new elevated 2.png" />
 
-<!-- Start Square Appointments Embed Code --><script src='https://square.site/appointments/buyer/widget/r78wg9cu9dm1ju/LZHYW5WH1FR7R.js'></script><!-- End Square Appointments Embed Code -->
+  <style>
+    :root {
+      --black: #050505;
+      --panel: #0c0c0c;
+      --gold: #996515;
+      --gold-light: #c9a227;
+      --text: #f7f3e8;
+      --muted: #c9c1ad;
+      --line: rgba(214,168,60,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(214,168,60,.15), transparent 34%),
+        linear-gradient(180deg, #000 0%, #080808 48%, #000 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,.86);
+      border-bottom: 1px solid rgba(214,168,60,.25);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      width: 250px;
+      max-width: 58vw;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #070707;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 0 28px rgba(214,168,60,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px rgba(214,168,60,.3);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--gold-light);
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
+        url("6-18-26 Flyer new car2.png") center / cover no-repeat;
+      opacity: .28;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, #000 78%);
+      z-index: -1;
+    }
+
+    .hero-logo {
+      width: min(430px, 90%);
+      display: block;
+      margin: 0 auto 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 9px 18px;
+      border: 1px solid rgba(201,162,39,.42);
+      border-radius: 999px;
+      background: rgba(201,162,39,.14);
+      color: #e0bb4f;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      color: var(--gold-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      text-shadow: 0 0 24px rgba(214,168,60,.22);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.6;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .booking-section {
+      padding: 34px 0 72px;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .info-panel,
+    .booking-panel {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      box-shadow: 0 20px 50px rgba(0,0,0,.34);
+    }
+
+    .info-panel {
+      padding: 26px;
+    }
+
+    .info-panel h2,
+    .booking-panel h2 {
+      margin: 0 0 12px;
+      color: var(--gold-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+    }
+
+    .info-panel p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .detail-list li {
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(214,168,60,.28);
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .detail-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .booking-panel {
+      padding: 24px;
+      min-height: 620px;
+      overflow: hidden;
+    }
+
+    .booking-intro {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+
+    .square-widget {
+      width: 100%;
+      min-height: 560px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .fallback {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(214,168,60,.22);
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid rgba(214,168,60,.25);
+      color: var(--muted);
+      text-align: center;
+      background: #030303;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .booking-panel,
+      .info-panel {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .square-widget {
+        min-height: 620px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="index.html" aria-label="Elevated Pro Detailing Home">
+        <img src="new elevated 2.png" alt="Elevated Pro Detailing" class="logo" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#addons">Add-ons</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn" href="tel:2624907620">Call 262-490-7620</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <img class="hero-logo" src="new elevated 2.png" alt="Elevated Pro Detailing" />
+        <div class="eyebrow">Schedule Online</div>
+        <h1>Book Your Detail</h1>
+        <p>Select a service and request an appointment with Elevated Pro Detailing. For questions, custom jobs, or mobile service details, call or text us directly.</p>
+        <div class="cta-row">
+          <a class="btn" href="tel:2624907620">Call or Text</a>
+          <a class="btn secondary" href="index.html#services">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section">
+      <div class="wrap booking-layout">
+        <aside class="info-panel">
+          <h2>Before You Book</h2>
+          <p>Choose the service that best matches your vehicle. If you are unsure which package fits, reach out and we can help you pick the right option.</p>
+
+          <ul class="detail-list">
+            <li>
+              <strong>Service Area</strong>
+              Serving Fort Atkinson, WI and surrounding areas.
+            </li>
+            <li>
+              <strong>Mobile Detailing</strong>
+              Travel pricing may apply based on distance from the shop.
+            </li>
+            <li>
+              <strong>Custom Work</strong>
+              Heavy stains, pet hair, paint correction, and specialty jobs may need extra time.
+            </li>
+            <li>
+              <strong>Questions?</strong>
+              Call or text 262-490-7620 for help before scheduling.
+            </li>
+          </ul>
+
+          <div class="cta-row">
+            <a class="btn" href="tel:2624907620">Call Now</a>
+          </div>
+        </aside>
+
+        <section class="booking-panel" aria-label="Online booking form">
+          <h2>Online Booking</h2>
+          <p class="booking-intro">Use the secure scheduler below to request your appointment.</p>
+
+          <div class="square-widget">
+            <!-- Start Square Appointments Embed Code -->
+            <script src="https://square.site/appointments/buyer/widget/r78wg9cu9dm1ju/LZHYW5WH1FR7R.js"></script>
+            <!-- End Square Appointments Embed Code -->
+          </div>
+
+          <p class="fallback">If the scheduler does not appear, call or text <a href="tel:2624907620">262-490-7620</a> and we will help you book.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Elevated Pro Detailing · ElevatedProDetailing.com
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
