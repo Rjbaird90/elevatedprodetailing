@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,24 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery | Elevated Pro Detailing</title>
 
-  @media(max-width:900px){
-
-  .nav{
-    flex-direction:column;
-    gap:15px;
-    padding:15px 0;
-  }
-
-  .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-    font-size:12px;
-  }
-
-}
-  
   <style>
+    *{
+      box-sizing:border-box;
+    }
+
     body{
       margin:0;
       background:#050505;
@@ -30,64 +18,69 @@
       font-family:Arial, Helvetica, sans-serif;
     }
 
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .wrap{
+      width:min(1120px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
     header{
-  border-bottom:1px solid rgba(214,168,60,.3);
-  background:#000;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+      border-bottom:1px solid rgba(214,168,60,.3);
+      background:#000;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
 
-.wrap{
-  width:min(1120px, calc(100% - 32px));
-  margin:0 auto;
-}
+    .nav{
+      min-height:80px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
 
-.nav{
-  min-height:80px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
+    .logo{
+      width:250px;
+      max-width:58vw;
+      display:block;
+    }
 
-.logo{
-  width:250px;
-  max-width:58vw;
-  display:block;
-}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#c9c1ad;
+    }
 
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  font-size:14px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#c9c1ad;
-}
+    .nav-links a:hover{
+      color:#c9a227;
+    }
 
-.nav-links a{
-  text-decoration:none;
-  color:#c9c1ad;
-}
+    .call-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#c9a227,#996515);
+      color:#000;
+      font-weight:800;
+      white-space:nowrap;
+    }
 
-.nav-links a:hover{
-  color:#c9a227;
-}
+    .hero{
+      text-align:center;
+      padding:60px 20px 25px;
+    }
 
-.call-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 22px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#c9a227,#996515);
-  color:#000;
-  font-weight:800;
-  white-space:nowrap;
-  text-decoration:none;
-}
     h1{
       color:#c9a227;
       font-size:52px;
@@ -100,76 +93,72 @@
       margin-bottom:20px;
     }
 
-    .nav{
-  min-height:80px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-
-.logo{
-  width:250px;
-  max-width:58vw;
-  display:block;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  font-size:14px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#c9c1ad;
-}
-
-.nav-links a:hover{
-  color:#c9a227;
-}
-
-.call-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 22px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#c9a227,#996515);
-  color:#000;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.hero{
-  text-align:center;
-  padding:70px 20px 30px;
-}
-
     .gallery{
       width:min(1200px, calc(100% - 30px));
-      margin:50px auto;
+      margin:40px auto 50px;
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
       gap:22px;
     }
 
     .gallery img{
-  width:100%;
-  border-radius:18px;
-  border:1px solid rgba(214,168,60,.35);
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
-  cursor:pointer;
-  transition:.25s ease;
-}
+      width:100%;
+      border-radius:18px;
+      border:1px solid rgba(214,168,60,.35);
+      box-shadow:0 20px 50px rgba(0,0,0,.45);
+      cursor:pointer;
+      transition:.25s ease;
+    }
 
-.gallery img:hover{
-  transform:scale(1.02);
-}
+    .gallery img:hover{
+      transform:scale(1.02);
+    }
 
     footer{
       text-align:center;
       padding:30px;
       color:#999;
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .lightbox img{
+      max-width:95%;
+      max-height:95%;
+      border-radius:18px;
+      border:2px solid #c9a227;
+    }
+
+    @media(max-width:900px){
+      .nav{
+        flex-direction:column;
+        gap:15px;
+        padding:15px 0;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        font-size:12px;
+      }
+
+      .call-btn{
+        margin-bottom:5px;
+      }
+
+      h1{
+        font-size:42px;
+      }
     }
   </style>
 </head>
@@ -202,42 +191,24 @@
 
 <section class="hero">
   <h1>Gallery</h1>
-
   <div class="sub">
     Before & after transformations from Elevated Pro Detailing
   </div>
 </section>
+
 <section class="gallery">
 
-  <img
-    src="Mike Before & After2.png"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Mike Before & After2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
-  <img
-    src="Tasha Before & After1.png"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Tasha Before & After1.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
-  <img
-    src="Before & After 4 pic2.png"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Before & After 4 pic2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
-  <img
-    src="Between Seats B&A.jpg"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Between Seats B&A.jpg" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
-  <img
-    src="Before & After 4 pic Cheryl.jpg"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Before & After 4 pic Cheryl.jpg" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
-  <img
-    src="Before & After Work Van2.png"
-    alt="Before and after detailing"
-    onclick="openLightbox(this.src)">
+  <img src="Before & After Work Van2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
 
 </section>
 
@@ -248,26 +219,6 @@
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
-
-<style>
-.lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.92);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.lightbox img{
-  max-width:95%;
-  max-height:95%;
-  border-radius:18px;
-  border:2px solid #c9a227;
-}
-</style>
 
 <script>
 function openLightbox(src){
@@ -282,3 +233,4 @@ function closeLightbox(){
 
 </body>
 </html>
+```
