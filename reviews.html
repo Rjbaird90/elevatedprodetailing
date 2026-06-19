@@ -136,9 +136,38 @@ header{
   box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
+.review-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:#000;
+  font-weight:900;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px rgba(201,162,39,.25);
+}
+
+.review-meta{
+  color:var(--muted);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-top:4px;
+}
+
 .review-card h3{
   color:var(--gold);
-  margin:12px 0;
+  margin:0;
 }
 
 .review-card p{
@@ -229,11 +258,19 @@ footer{
     <div class="review-grid">
 
       <div class="review-card">
-        <div class="stars">★★★★★</div>
 
-        <h3>Dan Loppnow</h3>
+  <div class="review-header">
+    <div class="avatar">D</div>
 
-        <p>
+    <div>
+      <h3>Dan Loppnow</h3>
+      <div class="review-meta">Google Review • Verified Customer</div>
+    </div>
+  </div>
+
+  <div class="stars">★★★★★</div>
+
+  <p>
           Just had my car detailed by Rob at Elevated Pro Detailing.
           He was incredibly efficient, managing to do a completely
           thorough job without wasting any time. The attention to detail
@@ -246,11 +283,19 @@ footer{
       </div>
 
       <div class="review-card">
-        <div class="stars">★★★★★</div>
 
-        <h3>Ruth</h3>
+  <div class="review-header">
+    <div class="avatar">R</div>
 
-        <p>
+    <div>
+      <h3>Ruth</h3>
+      <div class="review-meta">Facebook Recommendation</div>
+    </div>
+  </div>
+
+  <div class="stars">★★★★★</div>
+
+  <p>
           Just got my car done and it is lovely, just like brand new again.
           Thank you so much. You definitely have my business!!
         </p>
