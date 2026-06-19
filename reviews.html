@@ -59,6 +59,25 @@ header{
   max-width:60vw;
 }
 
+  .nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.header-call{
+  margin-top:0;
+  white-space:nowrap;
+}
+
 .back-link{
   color:var(--gold);
   font-weight:700;
@@ -149,6 +168,14 @@ footer{
     gap:15px;
     padding:15px 0;
   }
+
+  .nav-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    font-size:12px;
+  }
 }
 </style>
 </head>
@@ -161,8 +188,18 @@ footer{
       <img src="new elevated 2.png" alt="Elevated Pro Detailing" class="logo">
     </a>
 
-    <a href="index.html" class="back-link">
-      ← Back to Home
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#addons">Add-ons</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="Appointment.html">Book Appointment</a>
+    </nav>
+
+    <a class="btn header-call" href="tel:2624907620">
+      Call 262-490-7620
     </a>
   </div>
 </header>
