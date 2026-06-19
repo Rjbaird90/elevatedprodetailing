@@ -97,12 +97,14 @@
       width:min(1200px, calc(100% - 30px));
       margin:40px auto 50px;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(min(100%, 320px),1fr));
       gap:22px;
     }
 
     .gallery img{
+      display:block;
       width:100%;
+      height:auto;
       border-radius:18px;
       border:1px solid rgba(214,168,60,.35);
       box-shadow:0 20px 50px rgba(0,0,0,.45);
@@ -136,6 +138,27 @@
       max-height:95%;
       border-radius:18px;
       border:2px solid #c9a227;
+      cursor:default;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:18px;
+      right:20px;
+      width:44px;
+      height:44px;
+      border:1px solid rgba(214,168,60,.65);
+      border-radius:50%;
+      background:rgba(0,0,0,.65);
+      color:#c9a227;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+    }
+
+    .lightbox-close:hover{
+      background:#c9a227;
+      color:#000;
     }
 
     @media(max-width:900px){
@@ -198,17 +221,19 @@
 
 <section class="gallery">
 
-  <img src="Mike Before & After2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Mike Before & After2.png" alt="Mike vehicle before and after detail" onclick="openLightbox(this)">
 
-  <img src="Tasha Before & After1.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Tasha Before & After1.png" alt="Tasha vehicle before and after detail" onclick="openLightbox(this)">
 
-  <img src="Before & After 4 pic2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Before & After 4 pic2.png" alt="Four-photo vehicle before and after detail collage" onclick="openLightbox(this)">
 
-  <img src="Between Seats B&A.jpg" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Between Seats B&A.jpg" alt="Between seats before and after interior cleaning" onclick="openLightbox(this)">
 
-  <img src="Before & After 4 pic Cheryl.jpg" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Before & After 4 pic Cheryl.jpg" alt="Cheryl vehicle before and after detail collage" onclick="openLightbox(this)">
 
-  <img src="Before & After Work Van2.png" alt="Before and after detailing" onclick="openLightbox(this.src)">
+  <img src="Before & After Work Van1.png" alt="Work van before and after detail view one" onclick="openLightbox(this)">
+
+  <img src="Before & After Work Van2.png" alt="Work van before and after detail view two" onclick="openLightbox(this)">
 
 </section>
 
@@ -217,18 +242,29 @@
 </footer>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+  <button class="lightbox-close" type="button" aria-label="Close gallery image" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" alt="" onclick="event.stopPropagation()">
 </div>
 
 <script>
-function openLightbox(src){
-  document.getElementById('lightbox').style.display='flex';
-  document.getElementById('lightbox-img').src=src;
+function openLightbox(image){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-img');
+
+  lightbox.style.display='flex';
+  lightboxImage.src=image.src;
+  lightboxImage.alt=image.alt;
 }
 
 function closeLightbox(){
   document.getElementById('lightbox').style.display='none';
 }
+
+document.addEventListener('keydown', function(event){
+  if(event.key === 'Escape'){
+    closeLightbox();
+  }
+});
 </script>
 
 </body>
