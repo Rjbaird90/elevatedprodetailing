@@ -1,341 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Reviews | Elevated Pro Detailing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews | Elevated Pro Detailing</title>
+  <meta name="description" content="Read customer reviews for Elevated Pro Detailing in Fort Atkinson, WI. See real feedback and leave a Google review." />
+  <link rel="icon" href="new elevated 2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="icon" href="new elevated 2.png">
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-soft:#0b0b0b;
+      --card:#101010;
+      --gold:#c9a227;
+      --gold-dark:#8a6410;
+      --gold-soft:rgba(201,162,39,.16);
+      --text:#f8f3e7;
+      --muted:#bdb6a6;
+      --line:rgba(201,162,39,.24);
+      --white-line:rgba(255,255,255,.09);
+      --shadow:0 24px 80px rgba(0,0,0,.55);
+      --radius:28px;
+    }
 
-<style>
-:root{
-  --gold:#c9a227;
-  --gold-dark:#996515;
-  --text:#f7f3e8;
-  --muted:#c9c1ad;
-  --line:rgba(214,168,60,.45);
-}
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(201,162,39,.16), transparent 30%),
+        radial-gradient(circle at 92% 20%, rgba(201,162,39,.08), transparent 28%),
+        linear-gradient(180deg,#000 0%, #070707 35%, #020202 100%);
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 70%);
+      z-index:-1;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .wrap{width:min(1180px, calc(100% - 34px));margin:0 auto;}
 
-*{
-  box-sizing:border-box;
-}
+    .topbar{
+      background:#000;
+      border-bottom:1px solid var(--white-line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .topbar .wrap{
+      min-height:38px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .topbar span{display:inline-flex;align-items:center;gap:8px;}
+    .topbar i{color:var(--gold);}
 
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at top right, rgba(214,168,60,.15), transparent 35%),
-    linear-gradient(180deg,#000 0%,#080808 45%,#000 100%);
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(5,5,5,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand img{width:250px;max-width:56vw;}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .nav-links a{transition:.2s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:1px solid rgba(201,162,39,.65);
+      background:linear-gradient(135deg,#f0d06f 0%, var(--gold) 42%, var(--gold-dark) 100%);
+      color:#090909;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.01em;
+      box-shadow:0 14px 38px rgba(201,162,39,.2);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(201,162,39,.28);}
+    .btn.ghost{background:rgba(255,255,255,.03);color:var(--text);border-color:var(--white-line);box-shadow:none;}
+    .btn.ghost:hover{border-color:var(--gold);}
+    .btn.small{padding:11px 15px;font-size:14px;}
 
-.wrap{
-  width:min(1100px, calc(100% - 32px));
-  margin:0 auto;
-}
+    .hero{position:relative;padding:76px 0 42px;}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;padding:9px 15px;border-radius:999px;
+      border:1px solid var(--line);color:#f4d986;background:var(--gold-soft);
+      text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:900;margin-bottom:22px;
+    }
+    h1,h2,h3{margin:0;}
+    h1{font-family:"Playfair Display", Georgia, serif;font-size:clamp(48px, 7vw, 92px);line-height:.9;letter-spacing:-.055em;max-width:760px;}
+    .gold{color:var(--gold);}
+    .hero-copy p{color:var(--muted);font-size:clamp(17px, 2vw, 21px);line-height:1.65;margin:24px 0 28px;max-width:690px;}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
 
-header{
-  background:rgba(0,0,0,.85);
-  border-bottom:1px solid rgba(214,168,60,.25);
-  position:sticky;
-  top:0;
-}
+    .rating-card{
+      position:relative;
+      border-radius:36px;
+      background:linear-gradient(140deg, rgba(201,162,39,.32), transparent 40%), rgba(255,255,255,.045);
+      border:1px solid var(--line);
+      padding:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .rating-inner{
+      min-height:420px;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.1);
+      background:radial-gradient(circle at top, rgba(201,162,39,.22), transparent 42%), rgba(0,0,0,.78);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:30px;
+    }
+    .rating-number{font-size:clamp(76px, 10vw, 130px);font-weight:900;line-height:.9;color:var(--gold);letter-spacing:-.08em;}
+    .stars{color:#ffd76a;font-size:32px;letter-spacing:.08em;margin:14px 0;text-shadow:0 0 25px rgba(255,215,106,.22);}
+    .rating-inner p{color:var(--muted);line-height:1.6;margin:8px auto 0;max-width:360px;}
 
-.nav{
-  min-height:80px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    section{padding:72px 0;}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:30px;}
+    .section-head.center{text-align:center;display:block;}
+    .kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:900;margin-bottom:12px;}
+    h2{font-family:"Playfair Display", Georgia, serif;font-size:clamp(34px, 5vw, 58px);line-height:.98;letter-spacing:-.04em;}
+    .section-head p,.section-head.center p{color:var(--muted);line-height:1.65;max-width:650px;margin:14px 0 0;}
+    .section-head.center p{margin:14px auto 0;}
 
-.logo{
-  width:250px;
-  max-width:60vw;
-}
+    .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+    .review-card{
+      border:1px solid var(--white-line);
+      border-radius:var(--radius);
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      box-shadow:0 18px 60px rgba(0,0,0,.28);
+      position:relative;
+      overflow:hidden;
+    }
+    .review-card::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg, transparent, var(--gold), transparent);opacity:.65;}
+    .review-card.featured{border-color:rgba(201,162,39,.55);background:radial-gradient(circle at top, rgba(201,162,39,.18), transparent 46%), linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));}
+    .review-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .avatar{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:var(--gold-soft);color:var(--gold);font-weight:900;border:1px solid var(--line);}
+    .review-card h3{font-size:22px;margin-bottom:4px;}
+    .source{color:var(--gold);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;}
+    .review-card .stars{font-size:18px;letter-spacing:.06em;margin:12px 0 14px;}
+    .review-card p{color:var(--muted);line-height:1.7;margin:0;font-size:16px;}
+    .review-tag{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--gold);font-size:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;}
 
-  .nav-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  font-size:14px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
+    .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+    .proof-card{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:rgba(255,255,255,.035);box-shadow:var(--shadow);}
+    .proof-card img{width:100%;border-radius:20px;border:1px solid var(--white-line);}
 
-.nav-links a:hover{
-  color:var(--gold);
-}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .trust-item{border:1px solid var(--white-line);border-radius:22px;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));}
+    .trust-icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:var(--gold-soft);color:var(--gold);font-size:20px;margin-bottom:16px;}
+    .trust-item h3{font-size:18px;margin-bottom:8px;}
+    .trust-item p{color:var(--muted);line-height:1.55;margin:0;font-size:14px;}
 
-.header-call{
-  margin-top:0;
-  white-space:nowrap;
-}
+    .cta-box{border:1px solid rgba(201,162,39,.42);border-radius:36px;padding:42px;text-align:center;background:radial-gradient(circle at top, rgba(201,162,39,.2), transparent 42%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));box-shadow:var(--shadow);}
+    .cta-box p{color:var(--muted);line-height:1.65;max-width:680px;margin:16px auto 24px;}
+    .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
 
-.back-link{
-  color:var(--gold);
-  font-weight:700;
-}
+    footer{border-top:1px solid var(--white-line);padding:26px 0 34px;text-align:center;color:var(--muted);font-size:14px;background:#000;}
 
-.hero{
-  text-align:center;
-  padding:80px 0 50px;
-}
-
-.hero h1{
-  color:var(--gold);
-  font-family:Georgia, serif;
-  font-size:clamp(38px,6vw,70px);
-  margin-bottom:15px;
-}
-
-.hero p{
-  max-width:700px;
-  margin:0 auto;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-.stars{
-  color:#FFD700;
-  font-size:34px;
-  margin-bottom:15px;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 26px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-  color:#000;
-  font-weight:800;
-}
-
-.reviews{
-  padding:20px 0 80px;
-}
-
-.review-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:24px;
-}
-
-.review-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:28px;
-  box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
-
-.review-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:14px;
-}
-
-.avatar{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-  color:#000;
-  font-weight:900;
-  font-size:22px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 20px rgba(201,162,39,.25);
-}
-
-.review-meta{
-  color:var(--muted);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-top:4px;
-}
-
-.review-card h3{
-  color:var(--gold);
-  margin:0;
-}
-
-.review-card p{
-  color:var(--muted);
-  line-height:1.8;
-}
-
-.review-source{
-  display:block;
-  margin-top:15px;
-  color:var(--gold);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-}
-
-footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-  border-top:1px solid rgba(214,168,60,.25);
-}
-
-@media(max-width:768px){
-  .nav{
-    flex-direction:column;
-    gap:15px;
-    padding:15px 0;
-  }
-
-  .nav-links{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-    font-size:12px;
-  }
-}
-</style>
+    @media (max-width: 980px){.hero-grid{grid-template-columns:1fr;}.review-grid,.proof-grid{grid-template-columns:1fr;}.section-head{display:block;}.trust-grid{grid-template-columns:1fr;}}
+    @media (max-width: 760px){.topbar .wrap{justify-content:center;text-align:center;padding:8px 0;}.nav{flex-direction:column;padding:14px 0;gap:14px;}.nav-links{justify-content:center;flex-wrap:wrap;gap:11px;font-size:11px;}.hero{padding-top:44px;}section{padding:52px 0;}.rating-inner{min-height:320px;}.cta-box{padding:30px 18px;border-radius:28px;}.btn{width:100%;}.hero-actions,.cta-actions{width:100%;}}
+  </style>
 </head>
 
 <body>
-
-<header>
-  <div class="wrap nav">
-    <a href="index.html">
-      <img src="new elevated 2.png" alt="Elevated Pro Detailing" class="logo">
-    </a>
-
-    <nav class="nav-links">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="index.html#addons">Add-ons</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="Appointment.html">Book Appointment</a>
-    </nav>
-
-    <a class="btn header-call" href="tel:2624907620">
-      Call 262-490-7620
-    </a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="stars">★★★★★</div>
-
-    <h1>Customer Reviews</h1>
-
-    <p>
-      Customer satisfaction is our top priority. See what customers
-      are saying about their experience with Elevated Pro Detailing.
-    </p>
-
-    <a class="btn"
-       href="https://g.page/r/Ce2aT-1wXWkXEAE/review"
-       target="_blank">
-       Leave a Google Review
-    </a>
-  </div>
-</section>
-
-<section class="reviews">
-  <div class="wrap">
-
-    <div class="review-grid">
-
-      <div class="review-card">
-
-  <div class="review-header">
-    <div class="avatar">D</div>
-
-    <div>
-      <h3>Dan Loppnow</h3>
-      <div class="review-meta">Google Review • Verified Customer</div>
+  <div class="topbar">
+    <div class="wrap">
+      <span><i class="fa-solid fa-location-dot"></i> Fort Atkinson, WI & surrounding areas</span>
+      <span><i class="fa-solid fa-truck-fast"></i> Mobile service + drop-off available</span>
+      <span><i class="fa-solid fa-phone"></i> 262-490-7620</span>
     </div>
   </div>
 
-  <div class="stars">★★★★★</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Elevated Pro Detailing Home">
+        <img src="new elevated 2.png" alt="Elevated Pro Detailing logo" />
+      </a>
 
-  <p>
-          Just had my car detailed by Rob at Elevated Pro Detailing.
-          He was incredibly efficient, managing to do a completely
-          thorough job without wasting any time. The attention to detail
-          was spot on. Will definitely be using them again!
-        </p>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#addons">Add-ons</a>
+        <a href="gallery.html">Gallery</a>
+        <a class="active" href="reviews.html">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
 
-        <span class="review-source">
-          Google Review
-        </span>
+      <a class="btn small" href="Appointment.html">Book Appointment</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="pill"><i class="fa-solid fa-star"></i> Real Reviews. Real Results.</div>
+          <h1>Customers trust Elevated for clean, professional <span class="gold">results.</span></h1>
+          <p>Thank you to everyone who supports Elevated Pro Detailing. Reviews, referrals, and feedback help this small business keep growing.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://g.page/r/Ce2aT-1wXWkXEAE/review" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i> Leave a Google Review</a>
+            <a class="btn ghost" href="gallery.html"><i class="fa-solid fa-images"></i> View Gallery</a>
+          </div>
+        </div>
+
+        <div class="rating-card">
+          <div class="rating-inner">
+            <div class="rating-number">5.0</div>
+            <div class="stars">★★★★★</div>
+            <h2>Customer Rated</h2>
+            <p>Premium service, clean results, and professional care for every vehicle.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="review-card">
+    <section id="customer-reviews">
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="kicker">Customer Feedback</div>
+          <h2>What customers are saying.</h2>
+          <p>Real feedback from customers who trusted Elevated Pro Detailing with their vehicles.</p>
+        </div>
 
-  <div class="review-header">
-    <div class="avatar">R</div>
+        <div class="review-grid">
+          <article class="review-card featured">
+            <div class="review-top">
+              <div class="avatar">DL</div>
+              <div>
+                <h3>Dan Loppnow</h3>
+                <div class="source"><i class="fa-brands fa-google"></i> Google Review</div>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>“Just had my car detailed by Rob at Elevated Pro Detailing. He was incredibly efficient, managing to do a completely thorough job without wasting any time. The attention to detail was spot on. Will definitely be using them again!”</p>
+            <div class="review-tag"><i class="fa-solid fa-car"></i> Auto Detailing</div>
+          </article>
 
-    <div>
-      <h3>Ruth</h3>
-      <div class="review-meta">Facebook Recommendation</div>
-    </div>
-  </div>
-
-  <div class="stars">★★★★★</div>
-
-  <p>
-          Just got my car done and it is lovely, just like brand new again.
-          Thank you so much. You definitely have my business!!
-        </p>
-
-        <span class="review-source">
-          Facebook Recommendation
-        </span>
+          <article class="review-card">
+            <div class="review-top">
+              <div class="avatar">R</div>
+              <div>
+                <h3>Ruth</h3>
+                <div class="source"><i class="fa-brands fa-facebook"></i> Facebook Review</div>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>“Just got my car done. And it is lovely, just like brand new again. Thank you so much. You definitely have my business!!”</p>
+            <div class="review-tag"><i class="fa-solid fa-sparkles"></i> Vehicle Detail</div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="review-card">
+    <section>
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="kicker">Review Screenshots</div>
+          <h2>Proof customers can see.</h2>
+          <p>Screenshot proof helps visitors feel more confident before booking.</p>
+        </div>
 
-  <div class="review-header">
-    <div class="avatar">D</div>
-
-    <div>
-      <h3>Dylan Williams</h3>
-      <div class="review-meta">Google Review • Verified Customer</div>
-    </div>
-  </div>
-
-  <div class="stars">★★★★★</div>
-
-  <p>
-          Amazing service! Deep cleaned and got spots I didn't know were
-          possible to get to! Brought my car back to life and the wife's
-          car feels brand new!
-        </p>
-
-        <span class="review-source">
-          Google Review
-        </span>
+        <div class="proof-grid">
+          <div class="proof-card">
+            <img src="Dan Google Review.png" alt="Dan Google review screenshot for Elevated Pro Detailing" />
+          </div>
+          <div class="proof-card">
+            <img src="Ruth Review(2).png" alt="Ruth Facebook review screenshot for Elevated Pro Detailing" />
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section>
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="kicker">Why Reviews Matter</div>
+          <h2>Small business support goes a long way.</h2>
+        </div>
 
-  </div>
-</section>
+        <div class="trust-grid">
+          <div class="trust-item"><div class="trust-icon"><i class="fa-solid fa-shield-heart"></i></div><h3>Quality You Can See</h3><p>Clean finishes, refreshed interiors, and careful service from start to finish.</p></div>
+          <div class="trust-item"><div class="trust-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Local Service</h3><p>Serving Fort Atkinson, WI and surrounding areas with mobile and drop-off options.</p></div>
+          <div class="trust-item"><div class="trust-icon"><i class="fa-solid fa-calendar-check"></i></div><h3>Easy Booking</h3><p>Call, text, message, or use the appointment page to get your detail scheduled.</p></div>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  © 2026 Elevated Pro Detailing • ElevatedProDetailing.com
-</footer>
+    <section>
+      <div class="wrap">
+        <div class="cta-box">
+          <div class="kicker">Leave a Review</div>
+          <h2>We appreciate your support.</h2>
+          <p>Your review helps other customers feel confident choosing Elevated Pro Detailing. If you were happy with your service, a quick Google review makes a big difference.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://g.page/r/Ce2aT-1wXWkXEAE/review" target="_blank" rel="noopener"><i class="fa-solid fa-star"></i> Leave Us a Review</a>
+            <a class="btn ghost" href="Appointment.html"><i class="fa-solid fa-calendar-days"></i> Book Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="wrap">© <span id="year"></span> Elevated Pro Detailing · Elevatedprodetailing.com</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
