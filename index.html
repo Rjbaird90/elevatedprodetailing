@@ -518,6 +518,48 @@
       line-height:1;
     }
 
+
+
+    /* Subtle premium scroll animations */
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .75s ease, transform .75s ease;
+      transition-delay:var(--reveal-delay, 0ms);
+      will-change:opacity, transform;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .reveal-left{
+      transform:translateX(-24px);
+    }
+    .reveal-right{
+      transform:translateX(24px);
+    }
+    .reveal-left.visible,
+    .reveal-right.visible{
+      transform:translateX(0);
+    }
+    .reveal-zoom{
+      transform:scale(.97);
+    }
+    .reveal-zoom.visible{
+      transform:scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-zoom{
+        opacity:1 !important;
+        transform:none !important;
+        transition:none !important;
+      }
+    }
+
     @media (max-width: 980px){
       .hero-grid,.split{grid-template-columns:1fr;}
       .logo-card{min-height:420px;}
@@ -938,6 +980,50 @@
 
     function closePricingModal(){
       document.getElementById("pricingModal").classList.remove("active");
+    }
+
+
+
+    const revealSelectors = [
+      '.hero-copy',
+      '.hero-media',
+      '.video-wrap',
+      '.section-head',
+      '.service-card',
+      '.panel',
+      '.addon',
+      '.step',
+      '.review-card',
+      '.rates-card',
+      '.contact-box'
+    ];
+
+    const revealItems = document.querySelectorAll(revealSelectors.join(','));
+
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal');
+
+      if(item.classList.contains('hero-copy')) item.classList.add('reveal-left');
+      if(item.classList.contains('hero-media')) item.classList.add('reveal-right');
+      if(item.classList.contains('video-wrap')) item.classList.add('reveal-zoom');
+
+      const groupIndex = index % 6;
+      item.style.setProperty('--reveal-delay', `${groupIndex * 70}ms`);
+    });
+
+    if('IntersectionObserver' in window){
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
     }
 
     const menuToggle = document.querySelector('.menu-toggle');
