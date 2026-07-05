@@ -4,357 +4,365 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Appointment | Elevated Pro Detailing</title>
-  <meta name="description" content="Book an appointment with Elevated Pro Detailing in Fort Atkinson, WI. Schedule premium interior, exterior, and paint correction detailing services." />
+  <meta name="description" content="Book an appointment with Elevated Pro Detailing in Fort Atkinson, WI. Schedule premium interior, exterior, Signature Restore, paint enhancement, and paint correction detailing services." />
   <link rel="icon" href="assets/images/branding/new elevated 2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
-    :root {
-      --black: #050505;
-      --panel: #0c0c0c;
-      --gold: #996515;
-      --gold-light: #c9a227;
-      --text: #f7f3e8;
-      --muted: #c9c1ad;
-      --line: rgba(214,168,60,.45);
+    :root{
+      --bg:#050505;
+      --bg-soft:#0b0b0b;
+      --card:#101010;
+      --card-2:#15130e;
+      --gold:#c9a227;
+      --gold-dark:#8a6410;
+      --gold-soft:rgba(201,162,39,.16);
+      --text:#f8f3e7;
+      --muted:#bdb6a6;
+      --line:rgba(201,162,39,.24);
+      --white-line:rgba(255,255,255,.09);
+      --shadow:0 24px 80px rgba(0,0,0,.55);
+      --radius:28px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(214,168,60,.15), transparent 34%),
-        linear-gradient(180deg, #000 0%, #080808 48%, #000 100%);
+        radial-gradient(circle at 8% 0%, rgba(201,162,39,.16), transparent 30%),
+        radial-gradient(circle at 92% 20%, rgba(201,162,39,.08), transparent 28%),
+        linear-gradient(180deg,#000 0%, #070707 35%, #020202 100%);
+      overflow-x:hidden;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 70%);
+      z-index:-1;
     }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .wrap{width:min(1180px, calc(100% - 34px));margin:0 auto;}
 
-    .wrap {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
+    .topbar{
+      background:#000;
+      border-bottom:1px solid var(--white-line);
+      color:var(--muted);
+      font-size:13px;
     }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(0,0,0,.86);
-      border-bottom: 1px solid rgba(214,168,60,.25);
-      backdrop-filter: blur(12px);
+    .topbar .wrap{
+      min-height:38px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
     }
+    .topbar span{display:inline-flex;align-items:center;gap:8px;}
+    .topbar i{color:var(--gold);}
 
-    .nav {
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(5,5,5,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
     }
-
-    .logo {
-      width: 250px;
-      max-width: 58vw;
-      display: block;
+    .nav{
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+    .brand img{width:250px;max-width:56vw;}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      font-weight:800;
     }
+    .nav-links a{transition:.2s ease;}
+    .nav-links a:hover{color:var(--gold);}
 
-    .nav-links a:hover {
-      color: var(--gold-light);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:1px solid rgba(201,162,39,.65);
+      background:linear-gradient(135deg,#f0d06f 0%, var(--gold) 42%, var(--gold-dark) 100%);
+      color:#090909;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.01em;
+      box-shadow:0 14px 38px rgba(201,162,39,.2);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space:nowrap;
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      color: #070707;
-      font-weight: 800;
-      text-align: center;
-      box-shadow: 0 0 28px rgba(214,168,60,.18);
-      transition: transform .2s ease, box-shadow .2s ease;
-      white-space: nowrap;
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(201,162,39,.28);}
+    .btn.ghost{
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      border-color:var(--white-line);
+      box-shadow:none;
     }
+    .btn.ghost:hover{border-color:var(--gold);}
+    .btn.small{padding:11px 15px;font-size:14px;}
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 38px rgba(214,168,60,.3);
+    .hero{
+      position:relative;
+      padding:78px 0 44px;
+      text-align:center;
+      overflow:hidden;
     }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--gold-light);
-    }
-
-    .hero {
-      padding: 72px 0 36px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
-        url("6-18-26 Flyer new car2.png") center / cover no-repeat;
-      opacity: .28;
-      z-index: -2;
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.9)),
+        url("6-18-26 Flyer new car2.png") center/cover no-repeat;
+      opacity:.30;
+      z-index:-2;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, transparent 0%, #000 76%);
+      z-index:-1;
+    }
+    .hero-logo{
+      width:min(410px, 90%);
+      margin:0 auto 22px;
+      filter:drop-shadow(0 10px 30px rgba(0,0,0,.75));
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 15px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:#f4d986;
+      background:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:22px;
+    }
+    h1,h2,h3{margin:0;}
+    h1{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:clamp(48px, 7vw, 86px);
+      line-height:.9;
+      letter-spacing:-.055em;
+      color:var(--text);
+    }
+    h1 .gold{color:var(--gold);}
+    .hero p{
+      color:var(--muted);
+      font-size:clamp(17px, 2vw, 21px);
+      line-height:1.65;
+      margin:24px auto 28px;
+      max-width:720px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-bottom:0;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 0%, #000 78%);
-      z-index: -1;
+    section{padding:72px 0;}
+    .booking-section{padding-top:34px;}
+    .booking-layout{
+      display:grid;
+      grid-template-columns:.86fr 1.14fr;
+      gap:24px;
+      align-items:start;
     }
 
-    .hero-logo {
-      width: min(430px, 90%);
-      display: block;
-      margin: 0 auto 22px;
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,.14), transparent 40%),
+        rgba(255,255,255,.035);
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .panel h2{
+      font-family:"Playfair Display", Georgia, serif;
+      color:var(--gold);
+      font-size:clamp(32px, 4vw, 48px);
+      line-height:.98;
+      letter-spacing:-.04em;
+      margin-bottom:12px;
+    }
+    .panel p{
+      color:var(--muted);
+      line-height:1.65;
+      margin:0 0 20px;
+    }
+    .kicker{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:16px;
+      font-weight:900;
+      margin-bottom:14px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 9px 18px;
-      border: 1px solid rgba(201,162,39,.42);
-      border-radius: 999px;
-      background: rgba(201,162,39,.14);
-      color: #e0bb4f;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+    .detail-list{
+      display:grid;
+      gap:12px;
+      margin:0 0 24px;
+      padding:0;
+      list-style:none;
+    }
+    .detail-list li{
+      padding:15px;
+      border:1px solid var(--white-line);
+      border-radius:18px;
+      background:rgba(255,255,255,.025);
+      color:var(--muted);
+      line-height:1.45;
+    }
+    .detail-list strong{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--text);
+      margin-bottom:5px;
+    }
+    .detail-list i{color:var(--gold);}
+
+    .booking-panel{
+      min-height:620px;
+      overflow:hidden;
+    }
+    .booking-intro{
+      color:var(--muted);
+      line-height:1.65;
+      margin:0 0 18px;
+    }
+    .booking-checks{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin:18px 0 18px;
+    }
+    .booking-checks span{
+      border:1px solid var(--white-line);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      padding:13px;
+      font-size:14px;
+      line-height:1.35;
+    }
+    .booking-checks i{color:var(--gold);margin-right:6px;}
+
+    .promo-box{
+      margin:18px 0 22px;
+      padding:18px;
+      border:1px solid rgba(201,162,39,.5);
+      border-radius:20px;
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,.16), transparent 46%),
+        rgba(255,255,255,.035);
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .promo-box strong{
+      display:block;
+      color:var(--gold);
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:13px;
     }
 
-    h1 {
-      margin: 0 0 18px;
-      color: var(--gold-light);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1;
-      text-shadow: 0 0 24px rgba(214,168,60,.22);
+    .square-widget{
+      width:100%;
+      min-height:900px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--white-line);
+      background:#fff;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 26px;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 20px);
-      line-height: 1.6;
+    .fallback{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px dashed rgba(255,255,255,.14);
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+    .fallback a{color:var(--gold);font-weight:800;}
+
+    footer{
+      border-top:1px solid var(--white-line);
+      padding:26px 0 34px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      background:#000;
     }
 
-    .cta-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
+    @media (max-width: 980px){
+      .booking-layout{grid-template-columns:1fr;}
     }
 
-    .booking-section {
-      padding: 34px 0 72px;
-    }
-
-    .booking-layout {
-      display: grid;
-      grid-template-columns: .75fr 1.25fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .info-panel,
-    .booking-panel {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-      box-shadow: 0 20px 50px rgba(0,0,0,.34);
-    }
-
-    .info-panel {
-      padding: 26px;
-    }
-
-    .info-panel h2,
-    .booking-panel h2 {
-      margin: 0 0 12px;
-      color: var(--gold-light);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-    }
-
-    .info-panel p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .detail-list {
-      display: grid;
-      gap: 12px;
-      margin: 0 0 24px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .detail-list li {
-      padding-bottom: 12px;
-      border-bottom: 1px dashed rgba(214,168,60,.28);
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .detail-list strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .booking-panel {
-      padding: 24px;
-      min-height: 620px;
-      overflow: hidden;
-    }
-
-    .booking-intro {
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0 0 18px;
-    }
-
-    .square-widget {
-      width: 100%;
-      min-height: 900px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .fallback {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(214,168,60,.22);
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-
-    .booking-checks {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 18px 0 18px;
-    }
-
-    .booking-checks span {
-      border: 1px solid rgba(214,168,60,.28);
-      border-radius: 14px;
-      background: rgba(201,162,39,.1);
-      color: var(--text);
-      padding: 12px;
-      font-size: 14px;
-      line-height: 1.35;
-    }
-
-    .promo-box {
-      margin: 18px 0 22px;
-      padding: 16px 18px;
-      border: 1px solid rgba(214,168,60,.5);
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(201,162,39,.18), rgba(255,255,255,.03));
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .promo-box strong {
-      display: block;
-      color: var(--gold-light);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-size: 13px;
-    }
-
-    .promo-box span {
-      display: block;
-    }
-
-    footer {
-      padding: 26px 0 34px;
-      border-top: 1px solid rgba(214,168,60,.25);
-      color: var(--muted);
-      text-align: center;
-      background: #030303;
-      font-size: 14px;
-    }
-
-    @media (max-width: 920px) {
-      .nav {
-        flex-direction: column;
-        padding: 15px 0;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-        font-size: 12px;
-      }
-
-      .booking-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .booking-panel,
-      .info-panel {
-        padding: 20px;
-        border-radius: 18px;
-      }
-
-      .square-widget {
-        min-height: 760px;
-      }
-
-      .booking-checks {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
+    @media (max-width: 760px){
+      .topbar .wrap{justify-content:center;text-align:center;padding:8px 0;}
+      .nav{flex-direction:column;padding:14px 0;gap:14px;}
+      .nav-links{justify-content:center;flex-wrap:wrap;gap:11px;font-size:11px;}
+      .hero{padding-top:44px;}
+      section{padding:52px 0;}
+      .panel{padding:24px 18px;border-radius:24px;}
+      .btn{width:100%;}
+      .hero-actions{width:100%;}
+      .booking-checks{grid-template-columns:1fr;}
+      .square-widget{min-height:760px;}
     }
   </style>
 </head>
+
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <span><i class="fa-solid fa-location-dot"></i> Fort Atkinson, WI & surrounding areas</span>
+      <span><i class="fa-solid fa-truck-fast"></i> Mobile service + drop-off available</span>
+      <span><i class="fa-solid fa-phone"></i> 262-490-7620</span>
+    </div>
+  </div>
+
   <header>
     <div class="wrap nav">
-      <a href="index.html" aria-label="Elevated Pro Detailing Home">
-        <img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing" class="logo" />
+      <a class="brand" href="index.html" aria-label="Elevated Pro Detailing Home">
+        <img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing logo" />
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
@@ -366,7 +374,7 @@
         <a href="index.html#contact">Contact</a>
       </nav>
 
-      <a class="btn" href="tel:2624907620">Call 262-490-7620</a>
+      <a class="btn small" href="tel:2624907620">Call 262-490-7620</a>
     </div>
   </header>
 
@@ -374,59 +382,61 @@
     <section class="hero">
       <div class="wrap">
         <img class="hero-logo" src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing" />
-        <div class="eyebrow">Schedule Online</div>
-        <h1>Book Your Detail</h1>
+        <div class="pill"><i class="fa-solid fa-calendar-check"></i> Schedule Online</div>
+        <h1>Book Your <span class="gold">Detail.</span></h1>
         <p>Select a service and request an appointment with Elevated Pro Detailing. For questions, custom jobs, or mobile service details, call or text us directly.</p>
-        <div class="cta-row">
-          <a class="btn" href="tel:2624907620">Call or Text</a>
-          <a class="btn secondary" href="index.html#services">View Services</a>
+        <div class="hero-actions">
+          <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call or Text</a>
+          <a class="btn ghost" href="index.html#services"><i class="fa-solid fa-list-check"></i> View Services</a>
         </div>
       </div>
     </section>
 
     <section class="booking-section">
       <div class="wrap booking-layout">
-        <aside class="info-panel">
-          <h2>What to Expect</h2>
+        <aside class="panel info-panel">
+          <div class="kicker">What to Expect</div>
+          <h2>Choose the right service.</h2>
           <p>Choose the service that best matches your vehicle. If you are unsure which package fits, reach out and we can help you pick the right option.</p>
 
           <ul class="detail-list">
             <li>
-              <strong>Service Area</strong>
+              <strong><i class="fa-solid fa-location-dot"></i> Service Area</strong>
               Serving Fort Atkinson, WI and surrounding areas.
             </li>
             <li>
-              <strong>Mobile Detailing</strong>
+              <strong><i class="fa-solid fa-truck-fast"></i> Mobile Detailing</strong>
               Travel pricing may apply based on distance from the shop.
             </li>
             <li>
-              <strong>Custom Work</strong>
+              <strong><i class="fa-solid fa-screwdriver-wrench"></i> Custom Work</strong>
               Heavy stains, pet hair, paint correction, and specialty jobs may need extra time.
             </li>
             <li>
-              <strong>Need Help Choosing?</strong>
+              <strong><i class="fa-solid fa-circle-question"></i> Need Help Choosing?</strong>
               Not sure which package is right for your vehicle? Call or text us and we'll help you choose the best option.
             </li>
           </ul>
 
-          <div class="cta-row">
-            <a class="btn" href="tel:2624907620">Call Now</a>
+          <div class="hero-actions" style="justify-content:flex-start;">
+            <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call Now</a>
           </div>
         </aside>
 
-        <section class="booking-panel" aria-label="Online booking form">
+        <section class="panel booking-panel" aria-label="Online booking form">
+          <div class="kicker">Online Booking</div>
           <h2>Schedule Your Appointment</h2>
           <p class="booking-intro">Choose your service, select an available time, and request your appointment online in just a few minutes.</p>
 
           <div class="booking-checks" aria-label="Booking benefits">
-            <span>✓ Secure online scheduling</span>
-            <span>✓ Appointment confirmation by email</span>
-            <span>✓ Mobile & drop-off appointments available</span>
+            <span><i class="fa-solid fa-check"></i> Secure online scheduling</span>
+            <span><i class="fa-solid fa-check"></i> Appointment confirmation by email</span>
+            <span><i class="fa-solid fa-check"></i> Mobile & drop-off appointments available</span>
           </div>
 
           <div class="promo-box">
             <strong>Current Special</strong>
-            <span>Book an Elevated Signature Restore during August and receive a FREE Spray Wax, a $20 value.(Must add spray wax service when booking, discount applied at checkout)</span>
+            <span>Book an Elevated Signature Restore during August and receive a FREE Spray Wax, a $20 value. Must add spray wax service when booking. Discount applied at checkout.</span>
           </div>
 
           <div class="square-widget">
