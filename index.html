@@ -506,12 +506,49 @@
       .section-head{display:block;}
     }
     @media (max-width: 760px){
-      .topbar .wrap{justify-content:center;text-align:center;padding:8px 0;}
-      .nav{flex-direction:column;padding:14px 0;gap:14px;}
-      .nav-links{justify-content:center;flex-wrap:wrap;gap:11px;font-size:11px;}
-      .hero{padding-top:44px;}
+      .topbar .wrap{
+        justify-content:center;
+        text-align:center;
+        padding:4px 0;
+        gap:4px;
+        font-size:11px;
+        min-height:auto;
+      }
+
+      .topbar span{
+        gap:5px;
+        line-height:1.25;
+      }
+
+      .nav{
+        flex-direction:column;
+        padding:6px 0;
+        gap:6px;
+        min-height:auto;
+      }
+
+      .brand img{
+        width:145px;
+        max-width:70%;
+      }
+
+      .nav-links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:7px 11px;
+        font-size:10px;
+        letter-spacing:.08em;
+        line-height:1.2;
+      }
+
+      .btn.small{
+        padding:7px 14px;
+        font-size:12px;
+      }
+
+      .hero{padding-top:34px;}
       .trust-row,.service-grid,.addon-grid,.process-grid{grid-template-columns:1fr;}
-      section{padding:52px 0;}
+      section{padding:50px 0;}
       .logo-card{min-height:360px;padding:22px;}
       .contact-box{padding:30px 18px;border-radius:28px;}
       .btn{width:100%;}
