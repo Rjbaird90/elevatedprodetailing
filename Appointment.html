@@ -246,7 +246,7 @@
 
     .square-widget {
       width: 100%;
-      min-height: 560px;
+      min-height: 900px;
       border-radius: 16px;
       overflow: hidden;
       background: #fff;
@@ -259,6 +259,47 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.55;
+    }
+
+
+    .booking-checks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
+
+    .booking-checks span {
+      border: 1px solid rgba(214,168,60,.28);
+      border-radius: 14px;
+      background: rgba(201,162,39,.1);
+      color: var(--text);
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .promo-box {
+      margin: 18px 0 22px;
+      padding: 16px 18px;
+      border: 1px solid rgba(214,168,60,.5);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(201,162,39,.18), rgba(255,255,255,.03));
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .promo-box strong {
+      display: block;
+      color: var(--gold-light);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+
+    .promo-box span {
+      display: block;
     }
 
     footer {
@@ -296,7 +337,11 @@
       }
 
       .square-widget {
-        min-height: 620px;
+        min-height: 760px;
+      }
+
+      .booking-checks {
+        grid-template-columns: 1fr;
       }
 
       .btn {
@@ -342,7 +387,7 @@
     <section class="booking-section">
       <div class="wrap booking-layout">
         <aside class="info-panel">
-          <h2>Before You Book</h2>
+          <h2>What to Expect</h2>
           <p>Choose the service that best matches your vehicle. If you are unsure which package fits, reach out and we can help you pick the right option.</p>
 
           <ul class="detail-list">
@@ -359,8 +404,8 @@
               Heavy stains, pet hair, paint correction, and specialty jobs may need extra time.
             </li>
             <li>
-              <strong>Questions?</strong>
-              Call or text 262-490-7620 for help before scheduling.
+              <strong>Need Help Choosing?</strong>
+              Not sure which package is right for your vehicle? Call or text us and we'll help you choose the best option.
             </li>
           </ul>
 
@@ -370,8 +415,19 @@
         </aside>
 
         <section class="booking-panel" aria-label="Online booking form">
-          <h2>Online Booking</h2>
-          <p class="booking-intro">Use the secure scheduler below to request your appointment.</p>
+          <h2>Schedule Your Appointment</h2>
+          <p class="booking-intro">Choose your service, select an available time, and request your appointment online in just a few minutes.</p>
+
+          <div class="booking-checks" aria-label="Booking benefits">
+            <span>✓ Secure online scheduling</span>
+            <span>✓ Appointment confirmation by email</span>
+            <span>✓ Mobile & drop-off appointments available</span>
+          </div>
+
+          <div class="promo-box">
+            <strong>Current Special</strong>
+            <span>Book an Elevated Signature Restore during August and receive a FREE Spray Wax, a $20 value.</span>
+          </div>
 
           <div class="square-widget">
             <!-- Start Square Appointments Embed Code -->
