@@ -14,7 +14,7 @@
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 10% 0%,rgba(201,162,39,.16),transparent 30%),radial-gradient(circle at 92% 32%,rgba(201,162,39,.08),transparent 25%),linear-gradient(180deg,#000 0%,#080808 45%,#020202 100%);overflow-x:hidden}body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 72%)}
     a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,input{font:inherit}.wrap{width:min(1180px,calc(100% - 34px));margin:0 auto}
     .topbar{background:#000;border-bottom:1px solid var(--white-line);color:var(--muted);font-size:13px}.topbar .wrap{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.topbar strong{color:var(--gold)}header{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{width:250px;max-width:56vw}.nav-links{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.nav-links a{transition:color .2s ease}.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--gold)}
-    .call-btn,.cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid rgba(201,162,39,.65);border-radius:999px;color:#090909;background:linear-gradient(135deg,#f0d06f 0%,var(--gold) 42%,var(--gold-dark) 100%);box-shadow:0 14px 38px rgba(201,162,39,.2);font-weight:900;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease}.call-btn:hover,.cta:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(201,162,39,.3)}
+    .call-btn,.cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid rgba(201,162,39,.65);border-radius:999px;color:#090909;background:linear-gradient(135deg,#f0d06f 0%,var(--gold) 42%,var(--gold-dark) 100%);box-shadow:0 14px 38px rgba(201,162,39,.2);font-weight:900;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease}.call-btn:hover,.cta:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(201,162,39,.3)}.mobile-actions{display:none}.menu-toggle{display:none;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border:1px solid var(--white-line);border-radius:999px;color:var(--text);background:rgba(255,255,255,.04);font-weight:900;letter-spacing:.03em;cursor:pointer}.menu-toggle:hover{border-color:var(--gold);color:var(--gold)}.menu-icon{font-size:18px;line-height:1}.desktop-call{display:inline-flex}.mobile-call{display:none}
     .hero{padding:78px 0 42px;text-align:center}.eyebrow{display:inline-flex;padding:9px 15px;border:1px solid var(--line);border-radius:999px;color:#f4d986;background:var(--gold-soft);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1,h2{font-family:"Playfair Display",Georgia,serif}h1{margin:20px auto 18px;max-width:850px;font-size:clamp(48px,7vw,84px);line-height:.95;letter-spacing:-.045em}.gold{color:var(--gold)}.hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:clamp(16px,2vw,20px);line-height:1.65}
     .featured{padding:18px 0 78px}.comparison-card{overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(201,162,39,.1),transparent 34%),var(--card);box-shadow:var(--shadow)}.comparison-head{display:flex;align-items:end;justify-content:space-between;gap:28px;padding:30px 32px}.comparison-head h2{margin-bottom:8px;font-size:clamp(29px,4vw,44px)}.comparison-head p{max-width:610px;margin:0;color:var(--muted);line-height:1.6}.drag-hint{display:flex;align-items:center;gap:10px;flex:0 0 auto;color:#f4d986;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.drag-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--gold-soft);font-size:18px}
     .comparison{--position:50%;position:relative;isolation:isolate;aspect-ratio:16/10;min-height:340px;overflow:hidden;background:#090909;user-select:none;touch-action:pan-y}.comparison img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%}.before-image{z-index:2;clip-path:inset(0 calc(100% - var(--position)) 0 0)}.image-label{position:absolute;top:22px;z-index:5;padding:9px 14px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 8px 25px rgba(0,0,0,.3)}.image-label.before{left:22px;color:#fff;background:rgba(5,5,5,.72);border:1px solid rgba(255,255,255,.25)}.image-label.after{right:22px;color:#090909;background:var(--gold)}
@@ -24,32 +24,38 @@
     .book-strip{padding:0 0 84px}.book-card{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:34px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(120deg,rgba(201,162,39,.16),rgba(255,255,255,.025));box-shadow:var(--shadow)}.book-card h2{margin-bottom:8px;font-size:clamp(28px,4vw,42px)}.book-card p{margin:0;color:var(--muted)}footer{padding:30px;text-align:center;border-top:1px solid var(--white-line);color:#8e897f;font-size:14px}
     .lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:60px 20px 20px}.lightbox.open{display:flex}.lightbox img{max-width:min(1100px,95vw);max-height:86vh;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.lightbox-close{position:absolute;top:18px;right:20px;display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(201,162,39,.65);border-radius:50%;background:rgba(0,0,0,.65);color:var(--gold);font-size:30px;line-height:1;cursor:pointer}
     @media(max-width:980px){.nav{flex-wrap:wrap;justify-content:center;padding:14px 0}.nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:13px;font-size:11px}.gallery{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:700px){
-      header{position:sticky;top:0}
-      .topbar .wrap{justify-content:center;padding:4px 0;text-align:center;font-size:11px;gap:4px;min-height:auto}
-      .topbar span:last-child{display:none}
-      .nav{min-height:auto;gap:6px;padding:6px 0;flex-direction:column;justify-content:center}
-      .logo{width:145px;max-width:70vw}
-      .nav-links{order:2;width:100%;justify-content:center;flex-wrap:wrap;gap:7px 11px;font-size:10px;letter-spacing:.08em}
-      .call-btn{order:3;padding:7px 14px;font-size:12px}
-      .hero{padding:38px 0 28px}
-      .comparison-head,.comparison-foot,.section-heading,.book-card{align-items:flex-start;flex-direction:column}
-      .comparison-head{padding:24px}
-      .drag-hint{display:none}
-      .comparison{aspect-ratio:4/5;min-height:430px}
-      .comparison img{object-position:center}
-      .comparison-foot{padding:18px 22px}
-      .gallery{grid-template-columns:1fr}
-      .gallery-item{min-height:245px}
-      .book-card{padding:28px}
-      .cta{width:100%}
-    }
+    @media(max-width:700px){header{position:sticky;top:0}.topbar .wrap{justify-content:center;padding:6px 0;text-align:center;font-size:12px}.topbar span:last-child{display:none}.nav{min-height:auto;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;padding:8px 0;position:relative}.logo{width:142px;max-width:48vw}.mobile-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px}.menu-toggle{display:inline-flex;padding:9px 12px;font-size:13px}.desktop-call{display:none}.mobile-call{display:inline-flex;padding:9px 13px;font-size:13px;box-shadow:none}.nav-links{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:80;width:100%;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(5,5,5,.97);box-shadow:0 18px 50px rgba(0,0,0,.7);backdrop-filter:blur(18px);grid-template-columns:1fr;gap:0;text-align:center}.nav-links.open{display:grid}.nav-links a{display:block;padding:13px 10px;border-bottom:1px solid var(--white-line);font-size:12px;letter-spacing:.12em}.nav-links a:last-child{border-bottom:0}.hero{padding:48px 0 30px}.comparison-head,.comparison-foot,.section-heading,.book-card{align-items:flex-start;flex-direction:column}.comparison-head{padding:24px}.drag-hint{display:none}.comparison{aspect-ratio:4/5;min-height:430px}.comparison img{object-position:center}.comparison-foot{padding:18px 22px}.gallery{grid-template-columns:1fr}.gallery-item{min-height:245px}.book-card{padding:28px}.cta{width:100%}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body>
   <div class="topbar"><div class="wrap"><span><strong>Elevated Pro Detailing</strong> · Fort Atkinson, WI</span><span>Mobile and drop-off detailing</span></div></div>
-  <header><div class="wrap nav"><a href="index.html" aria-label="Elevated Pro Detailing home"><img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing" class="logo"></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#addons">Add-ons</a><a href="gallery.html" aria-current="page">Gallery</a><a href="reviews.html">Reviews</a><a href="index.html#contact">Contact</a><a href="Appointment.html">Book</a></nav><a class="call-btn" href="tel:2624907620">Call 262-490-7620</a></div></header>
+  <header>
+    <div class="wrap nav">
+      <a href="index.html" aria-label="Elevated Pro Detailing home">
+        <img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing" class="logo">
+      </a>
+
+      <div class="mobile-actions">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+          <span class="menu-icon">☰</span> Menu
+        </button>
+        <a class="call-btn mobile-call" href="tel:2624907620">Call</a>
+      </div>
+
+      <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#addons">Add-ons</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="Appointment.html">Book</a>
+      </nav>
+
+      <a class="call-btn desktop-call" href="tel:2624907620">Call 262-490-7620</a>
+    </div>
+  </header>
   <main>
     <section class="hero wrap"><span class="eyebrow">Real vehicles · Real results</span><h1>See the <span class="gold">difference.</span></h1><p>Drag the slider to reveal a full interior reset, then explore more transformations from Elevated Pro Detailing.</p></section>
     <section class="featured wrap" aria-labelledby="featured-title"><article class="comparison-card">
@@ -65,6 +71,9 @@
   <footer>© <span id="year"></span> Elevated Pro Detailing · Fort Atkinson, Wisconsin</footer>
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer"><button class="lightbox-close" type="button" aria-label="Close gallery image">&times;</button><img id="lightbox-img" alt=""></div>
   <script>
+    const menuToggle=document.querySelector('.menu-toggle');const mainNav=document.getElementById('mainNav');
+    if(menuToggle&&mainNav){menuToggle.addEventListener('click',()=>{const isOpen=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',isOpen?'true':'false');menuToggle.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open menu')}));document.addEventListener('click',event=>{if(!mainNav.contains(event.target)&&!menuToggle.contains(event.target)){mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open menu')}})}
+
     const comparison=document.getElementById('comparison');const slider=document.getElementById('comparison-slider');
     function setComparison(value){const position=Math.max(0,Math.min(100,Number(value)));comparison.style.setProperty('--position',position+'%');slider.value=position;slider.setAttribute('aria-valuetext',position+' percent before photo shown')}
     slider.addEventListener('input',event=>setComparison(event.target.value));document.querySelectorAll('[data-position]').forEach(button=>button.addEventListener('click',()=>setComparison(button.dataset.position)));
