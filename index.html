@@ -124,7 +124,27 @@
       box-shadow:none;
     }
     .btn.ghost:hover{border-color:var(--gold);}
-    .btn.small{padding:11px 15px;font-size:14px;}
+     .btn.small{padding:11px 15px;font-size:14px;}
+
+    .mobile-actions{display:none;}
+    .menu-toggle{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:9px 12px;
+      border:1px solid var(--white-line);
+      border-radius:999px;
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+      font-weight:900;
+      letter-spacing:.03em;
+      cursor:pointer;
+    }
+    .menu-toggle:hover{border-color:var(--gold);color:var(--gold);}
+    .menu-icon{font-size:18px;line-height:1;}
+    .desktop-book{display:inline-flex;}
+    .mobile-call{display:none;}
 
     .hero{
       position:relative;
@@ -509,49 +529,75 @@
       .topbar .wrap{
         justify-content:center;
         text-align:center;
-        padding:4px 0;
-        gap:4px;
-        font-size:11px;
-        min-height:auto;
-      }
-
-      .topbar span{
-        gap:5px;
-        line-height:1.25;
-      }
-
-      .nav{
-        flex-direction:column;
         padding:6px 0;
         gap:6px;
-        min-height:auto;
+        font-size:12px;
       }
+      .topbar span:nth-child(2){display:none;}
 
-      .brand img{
-        width:145px;
-        max-width:70%;
+      header{position:sticky;top:0;}
+      .nav{
+        min-height:auto;
+        display:grid;
+        grid-template-columns:auto 1fr;
+        align-items:center;
+        gap:10px;
+        padding:8px 0;
+        position:relative;
+      }
+      .brand img{width:142px;max-width:48vw;}
+
+      .mobile-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:8px;
+      }
+      .menu-toggle{display:inline-flex;font-size:13px;}
+      .desktop-book{display:none;}
+      .mobile-call{
+        display:inline-flex;
+        width:auto;
+        padding:9px 13px;
+        font-size:13px;
+        box-shadow:none;
       }
 
       .nav-links{
-        justify-content:center;
-        flex-wrap:wrap;
-        gap:7px 11px;
-        font-size:10px;
-        letter-spacing:.08em;
-        line-height:1.2;
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(100% + 8px);
+        z-index:80;
+        width:100%;
+        padding:14px;
+        border:1px solid var(--line);
+        border-radius:18px;
+        background:rgba(5,5,5,.97);
+        box-shadow:0 18px 50px rgba(0,0,0,.7);
+        backdrop-filter:blur(18px);
+        grid-template-columns:1fr;
+        gap:0;
+        text-align:center;
       }
-
-      .btn.small{
-        padding:7px 14px;
+      .nav-links.open{display:grid;}
+      .nav-links a{
+        display:block;
+        padding:13px 10px;
+        border-bottom:1px solid var(--white-line);
         font-size:12px;
+        letter-spacing:.12em;
       }
+      .nav-links a:last-child{border-bottom:0;}
 
-      .hero{padding-top:34px;}
+      .hero{padding-top:44px;}
       .trust-row,.service-grid,.addon-grid,.process-grid{grid-template-columns:1fr;}
-      section{padding:50px 0;}
+      section{padding:52px 0;}
       .logo-card{min-height:360px;padding:22px;}
       .contact-box{padding:30px 18px;border-radius:28px;}
       .btn{width:100%;}
+      .mobile-call{width:auto;}
       .hero-actions,.contact .hero-actions{width:100%;}
     }
   </style>
@@ -572,16 +618,24 @@
         <img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing logo" />
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
+      <div class="mobile-actions">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+          <span class="menu-icon">☰</span> Menu
+        </button>
+        <a class="btn small mobile-call" href="tel:2624907620">Call</a>
+      </div>
+
+      <nav class="nav-links" id="mainNav" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#addons">Add-ons</a>
         <a href="gallery.html">Gallery</a>
         <a href="reviews.html">Reviews</a>
         <a href="#contact">Contact</a>
+        <a href="Appointment.html">Book</a>
       </nav>
 
-      <a class="btn small" href="Appointment.html">Book Appointment</a>
+      <a class="btn small desktop-book" href="Appointment.html">Book Appointment</a>
     </div>
   </header>
 
@@ -884,6 +938,33 @@
 
     function closePricingModal(){
       document.getElementById("pricingModal").classList.remove("active");
+    }
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('mainNav');
+
+    if(menuToggle && mainNav){
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Open menu');
+        });
+      });
+
+      document.addEventListener('click', event => {
+        if(!mainNav.contains(event.target) && !menuToggle.contains(event.target)){
+          mainNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Open menu');
+        }
+      });
     }
   </script>
 </body>
