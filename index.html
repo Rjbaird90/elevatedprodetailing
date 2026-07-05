@@ -461,6 +461,43 @@
       background:#000;
     }
 
+
+    .pricing-modal{
+      display:none;
+      position:fixed;
+      z-index:9999;
+      inset:0;
+      background:rgba(0,0,0,.88);
+      padding:24px;
+      overflow:auto;
+    }
+
+    .pricing-modal.active{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .pricing-modal img{
+      max-width:min(900px, 95vw);
+      max-height:90vh;
+      border-radius:18px;
+      border:1px solid var(--line);
+      box-shadow:0 24px 80px rgba(0,0,0,.8);
+    }
+
+    .pricing-close{
+      position:fixed;
+      top:18px;
+      right:22px;
+      color:white;
+      font-size:42px;
+      font-weight:900;
+      cursor:pointer;
+      z-index:10000;
+      line-height:1;
+    }
+
     @media (max-width: 980px){
       .hero-grid,.split{grid-template-columns:1fr;}
       .logo-card{min-height:420px;}
@@ -690,7 +727,7 @@
 <h2>Find the package that's right for your vehicle.</h2>
 <p>Compare our detailing packages, pricing, and available add-ons to choose the service that best fits your needs.</p>
           <div class="hero-actions">
-            <a class="btn" href="Flyer7-4.png" target="_blank" rel="noopener">View Pricing</a>
+            <a class="btn" href="#" onclick="openPricingModal(); return false;">View Pricing</a>
             <a class="btn ghost" href="Appointment.html">Book Appointment</a>
           </div>
         </div>
@@ -787,6 +824,12 @@
         </div>
       </div>
     </section>
+
+    <div id="pricingModal" class="pricing-modal" onclick="closePricingModal()">
+      <span class="pricing-close">&times;</span>
+      <img src="Flyer 7-5.png" alt="Elevated Pro Detailing pricing flyer" onclick="event.stopPropagation()">
+    </div>
+
   </main>
 
   <footer>
@@ -797,6 +840,14 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function openPricingModal(){
+      document.getElementById("pricingModal").classList.add("active");
+    }
+
+    function closePricingModal(){
+      document.getElementById("pricingModal").classList.remove("active");
+    }
   </script>
 </body>
 </html>
