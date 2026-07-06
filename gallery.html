@@ -28,8 +28,8 @@
     /* Subtle premium scroll animations */
     .reveal{
       opacity:0;
-      transform:translateY(22px);
-      transition:opacity .75s ease, transform .75s ease;
+      transform:translateY(14px);
+      transition:opacity .42s ease-out, transform .42s ease-out;
       transition-delay:var(--reveal-delay, 0ms);
       will-change:opacity, transform;
     }
@@ -38,17 +38,17 @@
       transform:translateY(0);
     }
     .reveal-left{
-      transform:translateX(-24px);
+      transform:translateX(-14px);
     }
     .reveal-right{
-      transform:translateX(24px);
+      transform:translateX(14px);
     }
     .reveal-left.visible,
     .reveal-right.visible{
       transform:translateX(0);
     }
     .reveal-zoom{
-      transform:scale(.97);
+      transform:scale(.985);
     }
     .reveal-zoom.visible{
       transform:scale(1);
@@ -142,7 +142,7 @@
       if(item.classList.contains('comparison-card')) item.classList.add('reveal-zoom');
       if(item.classList.contains('gallery-item')) item.classList.add('reveal-zoom');
       const groupIndex = index % 6;
-      item.style.setProperty('--reveal-delay', `${groupIndex * 70}ms`);
+      item.style.setProperty('--reveal-delay', `0ms`);
     });
 
     if('IntersectionObserver' in window){
