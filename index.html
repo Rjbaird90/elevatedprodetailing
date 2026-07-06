@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elevated Pro Detailing | Premium Mobile Auto Detailing</title>
-  <meta name="description" content="Elevated Pro Detailing provides premium mobile and drop-off auto detailing in Fort Atkinson, WI and surrounding areas. Interior, exterior, Signature Restore, paint enhancement, paint correction, and add-ons." />
+  <meta name="description" content="Elevated Pro Detailing provides premium mobile and drop-off auto detailing in Fort Atkinson, WI, Jefferson, Whitewater, Lake Mills, Cambridge, Johnson Creek, Watertown, Milton, Edgerton, and surrounding Southeast Wisconsin communities." />
   <link rel="icon" href="assets/images/branding/new elevated 2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -439,6 +439,45 @@
     .review-card p{color:var(--muted);line-height:1.65;margin:10px auto 22px;max-width:560px;}
 
     .rates-card{max-width:760px;margin:0 auto;}
+
+    .service-area-section{
+      padding-top:0;
+    }
+    .area-card{
+      border:1px solid var(--line);
+      border-radius:36px;
+      padding:34px;
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,.16), transparent 44%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      box-shadow:var(--shadow);
+    }
+    .area-card p{
+      color:var(--muted);
+      line-height:1.65;
+      max-width:820px;
+      margin:14px auto 26px;
+      text-align:center;
+    }
+    .area-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .area-item{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid var(--white-line);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      padding:13px 14px;
+      font-weight:800;
+      font-size:14px;
+    }
+    .area-item i{color:var(--gold);}
+
     .contact{
       padding-bottom:54px;
     }
@@ -634,10 +673,10 @@
       .nav-links a:last-child{border-bottom:0;}
 
       .hero{padding-top:44px;}
-      .trust-row,.service-grid,.addon-grid,.process-grid{grid-template-columns:1fr;}
+      .trust-row,.service-grid,.addon-grid,.process-grid,.area-grid{grid-template-columns:1fr;}
       section{padding:52px 0;}
       .logo-card{min-height:360px;padding:22px;}
-      .contact-box{padding:30px 18px;border-radius:28px;}
+      .contact-box,.area-card{padding:30px 18px;border-radius:28px;}
       .btn{width:100%;}
       .mobile-call{width:auto;}
       .hero-actions,.contact .hero-actions{width:100%;}
@@ -687,7 +726,7 @@
         <div class="hero-copy">
           <div class="pill"><i class="fa-solid fa-sparkles"></i> Premium Auto Care</div>
           <h1>Professional detailing that makes your vehicle feel <span class="gold">Elevated.</span></h1>
-          <p>Interior, exterior, and full Signature Restore packages built for clean results, refreshed finishes, and a better-looking ride without the cheap car-wash feel.</p>
+          <p>Interior, exterior, Signature Restore, paint enhancement, and paint correction services for drivers throughout Fort Atkinson, Jefferson, Whitewater, Lake Mills, Cambridge, Johnson Creek, Watertown, Milton, Edgerton, and surrounding Southeast Wisconsin communities.</p>
 
           <div class="hero-actions">
             <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call or Text to Book</a>
@@ -732,7 +771,7 @@
         <div class="section-head">
           <div>
             <div class="kicker">Detailing Services</div>
-            <h2>Choose your level of clean.</h2>
+            <h2>Professional auto detailing services in Fort Atkinson, WI.</h2>
           </div>
           <p>Start with a focused interior or exterior detail, go all-in with Signature Restore, or step up to paint enhancement and correction for more gloss and clarity.</p>
         </div>
@@ -916,12 +955,40 @@
       </div>
     </section>
 
+    <section id="service-area" class="service-area-section">
+      <div class="wrap">
+        <div class="area-card">
+          <div class="section-head center">
+            <div class="kicker">Service Area</div>
+            <h2>Proudly serving Southeast Wisconsin.</h2>
+            <p>Elevated Pro Detailing provides mobile and drop-off detailing services throughout Fort Atkinson and nearby communities. Whether you need an interior detail, exterior detail, Signature Restore, paint enhancement, or paint correction, we bring careful, professional auto detailing to drivers across the area.</p>
+          </div>
+
+          <div class="area-grid" aria-label="Elevated Pro Detailing service areas">
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Fort Atkinson</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Jefferson</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Whitewater</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Lake Mills</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Cambridge</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Johnson Creek</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Watertown</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Milton</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Edgerton</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Helenville</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Ixonia</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Palmyra</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <section id="mobile-rates">
       <div class="wrap">
         <div class="section-head center">
           <div class="kicker">Mobile Service Rates</div>
           <h2>Travel pricing.</h2>
-          <p>Drop-off is included in service pricing. Mobile appointments may include travel pricing depending on distance.</p>
+          <p>Drop-off is included in service pricing. Mobile appointments are available throughout Fort Atkinson and nearby Southeast Wisconsin communities, with travel pricing based on distance.</p>
         </div>
 
         <div class="panel rates-card">
@@ -942,7 +1009,7 @@
           <div class="kicker">Book Your Detail</div>
           <h2>Ready to bring your vehicle back to life?</h2>
           <a class="phone" href="tel:2624907620">262-490-7620</a>
-          <p class="service-area">Serving Fort Atkinson, WI and surrounding areas</p>
+          <p class="service-area">Proudly serving Fort Atkinson, Jefferson, Whitewater, Lake Mills, Cambridge, Johnson Creek, Watertown, Milton, Edgerton, Helenville, Ixonia, Palmyra, and surrounding Southeast Wisconsin communities.</p>
 
           <div class="payments">
             <p>Accepted Payments</p>
@@ -967,7 +1034,7 @@
 
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Elevated Pro Detailing · Elevatedprodetailing.com
+      © <span id="year"></span> Elevated Pro Detailing · Fort Atkinson, WI · Serving Southeast Wisconsin · Elevatedprodetailing.com
     </div>
   </footer>
 
@@ -995,6 +1062,7 @@
       '.step',
       '.review-card',
       '.rates-card',
+      '.area-card',
       '.contact-box'
     ];
 
