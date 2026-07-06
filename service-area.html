@@ -1,1 +1,738 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Area | Elevated Pro Detailing</title>
+  <meta name="description" content="Elevated Pro Detailing provides mobile and drop-off auto detailing services in Fort Atkinson, Jefferson, Whitewater, Lake Mills, Cambridge, Johnson Creek, Watertown, Milton, Edgerton, Helenville, Ixonia, Palmyra, Delafield, Oconomowoc, and surrounding Southeast Wisconsin communities." />
+  <link rel="icon" href="assets/images/branding/new elevated 2(2).png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQdQ0OWUXPvmY1lQeekf6xs2wXGkaVdM=" crossorigin="" />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-soft:#0b0b0b;
+      --card:#101010;
+      --card-2:#15130e;
+      --gold:#c9a227;
+      --gold-dark:#8a6410;
+      --gold-soft:rgba(201,162,39,.16);
+      --text:#f8f3e7;
+      --muted:#bdb6a6;
+      --line:rgba(201,162,39,.24);
+      --white-line:rgba(255,255,255,.09);
+      --shadow:0 24px 80px rgba(0,0,0,.55);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(201,162,39,.16), transparent 30%),
+        radial-gradient(circle at 92% 20%, rgba(201,162,39,.08), transparent 28%),
+        linear-gradient(180deg,#000 0%, #070707 35%, #020202 100%);
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 70%);
+      z-index:-1;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .wrap{width:min(1180px, calc(100% - 34px));margin:0 auto;}
+
+    .topbar{
+      background:#000;
+      border-bottom:1px solid var(--white-line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .topbar .wrap{
+      min-height:38px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .topbar span{display:inline-flex;align-items:center;gap:8px;}
+    .topbar i{color:var(--gold);}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(5,5,5,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand img{width:250px;max-width:56vw;}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .nav-links a{transition:.2s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:1px solid rgba(201,162,39,.65);
+      background:linear-gradient(135deg,#f0d06f 0%, var(--gold) 42%, var(--gold-dark) 100%);
+      color:#090909;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.01em;
+      box-shadow:0 14px 38px rgba(201,162,39,.2);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(201,162,39,.28);}
+    .btn.ghost{background:rgba(255,255,255,.03);color:var(--text);border-color:var(--white-line);box-shadow:none;}
+    .btn.ghost:hover{border-color:var(--gold);}
+    .btn.small{padding:11px 15px;font-size:14px;}
+
+    .mobile-header-actions,.mobile-menu,.mobile-menu-backdrop{display:none;}
+    .menu-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      border:1px solid var(--white-line);
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .menu-toggle i{color:var(--gold);}
+
+    .hero{
+      position:relative;
+      padding:82px 0 54px;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,.64), rgba(0,0,0,.92)),
+        url("assets/images/branding/new elevated 2(2).png") center/contain no-repeat;
+      opacity:.18;
+      z-index:-2;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, transparent 0%, #000 76%);
+      z-index:-1;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:34px;
+      align-items:center;
+    }
+    .pill,.kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:#f4d986;
+      background:var(--gold-soft);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:9px 15px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:20px;
+    }
+    h1,h2,h3,p{margin-top:0;}
+    h1,h2{font-family:"Playfair Display", Georgia, serif;}
+    h1{
+      font-size:clamp(44px, 6.3vw, 82px);
+      line-height:.93;
+      letter-spacing:-.055em;
+      margin:0 0 22px;
+    }
+    h2{
+      color:var(--gold);
+      font-size:clamp(34px, 4.5vw, 56px);
+      line-height:.98;
+      letter-spacing:-.04em;
+      margin:0 0 14px;
+    }
+    h3{color:var(--text);font-size:21px;margin:0 0 8px;}
+    .gold{color:var(--gold);}
+    .hero p,.section-head p,.card p,.map-copy p,.contact-box p{
+      color:var(--muted);
+      line-height:1.65;
+      font-size:17px;
+    }
+    .hero p{max-width:680px;font-size:clamp(17px, 2vw, 21px);}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,.16), transparent 46%),
+        rgba(255,255,255,.035);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card img{width:min(360px,100%);margin:0 auto 18px;filter:drop-shadow(0 12px 30px rgba(0,0,0,.6));}
+    .quick-stats{display:grid;gap:12px;}
+    .quick-stat{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border:1px solid var(--white-line);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      line-height:1.45;
+    }
+    .quick-stat i{color:var(--gold);font-size:18px;margin-top:2px;}
+    .quick-stat strong{display:block;color:var(--text);margin-bottom:4px;}
+
+    section{padding:72px 0;}
+    .section-head{text-align:center;margin:0 auto 32px;max-width:850px;}
+    .section-head .kicker{margin-bottom:14px;}
+
+    .map-section{padding-top:30px;}
+    .map-layout{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,.14), transparent 40%),
+        rgba(255,255,255,.035);
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .map-panel{position:relative;overflow:hidden;min-height:620px;}
+    .map-panel::before{
+      content:"Southeast Wisconsin";
+      position:absolute;
+      right:22px;
+      top:18px;
+      color:rgba(201,162,39,.16);
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:42px;
+      font-weight:800;
+      pointer-events:none;
+      z-index:0;
+    }
+    .map-panel > *{position:relative;z-index:1;}
+    #serviceMap{
+      width:100%;
+      height:560px;
+      margin-top:26px;
+      border:1px solid rgba(201,162,39,.5);
+      border-radius:22px;
+      overflow:hidden;
+      background:#111;
+      box-shadow:0 22px 50px rgba(0,0,0,.45);
+    }
+    .leaflet-container{font-family:Inter, Arial, sans-serif;}
+    .leaflet-control-zoom a{
+      background:#080808 !important;
+      color:var(--gold) !important;
+      border-bottom-color:rgba(201,162,39,.25) !important;
+    }
+    .leaflet-control-attribution{background:rgba(0,0,0,.72) !important;color:var(--muted) !important;}
+    .leaflet-control-attribution a{color:var(--gold) !important;}
+    .custom-pin{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:50% 50% 50% 0;
+      background:linear-gradient(135deg,#f0d06f 0%, var(--gold) 45%, var(--gold-dark) 100%);
+      border:2px solid #070707;
+      transform:rotate(-45deg);
+      box-shadow:0 6px 20px rgba(0,0,0,.65), 0 0 16px rgba(201,162,39,.55);
+    }
+    .custom-pin::after{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#090909;
+    }
+    .custom-pin.home{background:linear-gradient(135deg,#fff0a8 0%, #f0d06f 42%, var(--gold) 100%);}
+    .city-label{
+      background:rgba(0,0,0,.88);
+      color:#f8f3e7;
+      border:1px solid rgba(201,162,39,.55);
+      border-radius:999px;
+      box-shadow:0 8px 22px rgba(0,0,0,.45);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.01em;
+      padding:4px 8px;
+    }
+    .leaflet-tooltip-top.city-label::before{border-top-color:rgba(201,162,39,.55);}
+    .map-note{margin-top:18px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+    .city-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+    .city-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid var(--white-line);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:14px;
+      font-weight:800;
+    }
+    .city-item i{color:var(--gold);}
+
+    .rates-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .rate-card{
+      border:1px solid var(--white-line);
+      border-radius:22px;
+      background:rgba(255,255,255,.03);
+      padding:20px;
+      text-align:center;
+      min-height:142px;
+    }
+    .rate-card span{display:block;color:var(--muted);font-size:14px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:10px;}
+    .rate-card strong{display:block;color:var(--gold);font-size:28px;line-height:1.1;}
+    .rate-card p{margin:10px 0 0;color:var(--muted);font-size:14px;line-height:1.45;}
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .info-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.018));
+      box-shadow:0 18px 50px rgba(0,0,0,.34);
+    }
+    .info-card i{color:var(--gold);font-size:30px;margin-bottom:16px;}
+    .info-card p{margin:0;color:var(--muted);line-height:1.6;}
+
+    .contact{background:#030303;border-top:1px solid rgba(201,162,39,.22);}
+    .contact-box{
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:36px;
+      background:
+        radial-gradient(circle at top, rgba(201,162,39,.14), transparent 44%),
+        rgba(255,255,255,.025);
+      box-shadow:var(--shadow);
+    }
+    .phone{
+      display:block;
+      color:var(--gold);
+      font-size:clamp(34px, 6vw, 58px);
+      font-weight:900;
+      margin:12px 0 16px;
+      letter-spacing:.02em;
+    }
+    .contact .hero-actions{justify-content:center;}
+
+    footer{
+      padding:26px 0 34px;
+      border-top:1px solid rgba(201,162,39,.25);
+      color:var(--muted);
+      text-align:center;
+      background:#030303;
+      font-size:14px;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.map-layout{grid-template-columns:1fr;}
+      .rates-grid,.content-grid{grid-template-columns:repeat(2,1fr);}
+    }
+
+    @media (max-width: 820px){
+      .topbar .wrap{justify-content:center;text-align:center;padding:8px 0;}
+      .nav{min-height:76px;}
+      .nav-links,.desktop-book{display:none;}
+      .mobile-header-actions{display:flex;align-items:center;gap:10px;}
+      .mobile-menu-backdrop{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.72);
+        backdrop-filter:blur(5px);
+        z-index:80;
+      }
+      .mobile-menu{
+        position:fixed;
+        top:0;
+        right:0;
+        width:min(360px,86vw);
+        height:100vh;
+        background:#070707;
+        border-left:1px solid var(--line);
+        z-index:90;
+        padding:18px;
+        transform:translateX(105%);
+        transition:transform .22s ease;
+        box-shadow:-20px 0 60px rgba(0,0,0,.55);
+      }
+      body.menu-open .mobile-menu,
+      body.menu-open .mobile-menu-backdrop{display:block;}
+      body.menu-open .mobile-menu{transform:translateX(0);}
+      .mobile-menu-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--white-line);}
+      .mobile-menu-top img{width:190px;}
+      .mobile-close{border:1px solid var(--white-line);background:rgba(255,255,255,.04);color:var(--text);border-radius:999px;width:42px;height:42px;cursor:pointer;}
+      .mobile-close i{color:var(--gold);}
+      .mobile-menu-links{display:grid;gap:10px;padding-top:18px;}
+      .mobile-menu-links a{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        padding:14px 15px;
+        border:1px solid var(--white-line);
+        border-radius:18px;
+        background:rgba(255,255,255,.03);
+        color:var(--text);
+        font-weight:800;
+      }
+      .mobile-menu-links a.active{border-color:var(--gold);color:var(--gold);}
+      .mobile-menu-links i{color:var(--gold);width:20px;text-align:center;}
+    }
+
+    @media (max-width: 620px){
+      section{padding:52px 0;}
+      .hero{padding:52px 0 34px;}
+      .panel,.contact-box,.hero-card{padding:22px;border-radius:22px;}
+      .city-grid,.rates-grid,.content-grid{grid-template-columns:1fr;}
+      .btn{width:100%;}
+      .hero-actions{width:100%;}
+      .map-panel{min-height:auto;}
+      .pin-label{font-size:10px;}
+      .map-panel::before{font-size:30px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span><i class="fa-solid fa-location-dot"></i> Fort Atkinson, WI & surrounding areas</span>
+      <span><i class="fa-solid fa-truck-fast"></i> Mobile service + drop-off available</span>
+      <span><i class="fa-solid fa-phone"></i> 262-490-7620</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Elevated Pro Detailing Home">
+        <img src="assets/images/branding/new elevated 2(2).png" alt="Elevated Pro Detailing logo" onerror="this.onerror=null;this.src='assets/images/branding/new elevated 2.png';" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#addons">Add-ons</a>
+        <a class="active" href="service-area.html">Service Area</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn small desktop-book" href="Appointment.html">Book Appointment</a>
+
+      <div class="mobile-header-actions" aria-label="Mobile quick actions">
+        <button class="menu-toggle" type="button" aria-controls="mobileMenu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i> Menu
+        </button>
+        <a class="btn small" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile-menu-top">
+      <img src="assets/images/branding/new elevated 2(2).png" alt="Elevated Pro Detailing logo" onerror="this.onerror=null;this.src='assets/images/branding/new elevated 2.png';" />
+      <button class="mobile-close" type="button" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="mobile-menu-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="index.html#services"><i class="fa-solid fa-spray-can-sparkles"></i> Services</a>
+      <a href="index.html#pricing"><i class="fa-solid fa-tags"></i> Pricing</a>
+      <a href="index.html#addons"><i class="fa-solid fa-plus"></i> Add-ons</a>
+      <a class="active" href="service-area.html"><i class="fa-solid fa-map-location-dot"></i> Service Area</a>
+      <a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a>
+      <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+      <a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+      <a href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+      <a href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call 262-490-7620</a>
+    </nav>
+  </aside>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="pill"><i class="fa-solid fa-map-location-dot"></i> Service Area</div>
+          <h1>Mobile and drop-off detailing across <span class="gold">Southeast Wisconsin.</span></h1>
+          <p>Elevated Pro Detailing serves Fort Atkinson and nearby communities with professional interior detailing, exterior detailing, Signature Restore packages, paint enhancement, paint correction, and add-on services.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call or Text</a>
+            <a class="btn ghost" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book Online</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="assets/images/branding/new elevated 2(2).png" alt="Elevated Pro Detailing" onerror="this.onerror=null;this.src='assets/images/branding/new elevated 2.png';" />
+          <div class="quick-stats">
+            <div class="quick-stat"><i class="fa-solid fa-house"></i><div><strong>Based in Fort Atkinson</strong>Local detailing with a clean, professional finish.</div></div>
+            <div class="quick-stat"><i class="fa-solid fa-truck-fast"></i><div><strong>Mobile service available</strong>Travel pricing may apply depending on distance.</div></div>
+            <div class="quick-stat"><i class="fa-solid fa-car-side"></i><div><strong>Cars, SUVs, and trucks</strong>Service options for daily drivers, family vehicles, and work vehicles.</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="wrap map-layout">
+        <div class="panel map-panel">
+          <div class="kicker"><i class="fa-solid fa-location-dot"></i> Wisconsin Map</div>
+          <h2>Service area map.</h2>
+
+          <div id="serviceMap" role="img" aria-label="Interactive OpenStreetMap showing Elevated Pro Detailing service cities in Southeast Wisconsin"></div>
+
+          <p class="map-note">This is a live Leaflet/OpenStreetMap map. Each pin uses real latitude and longitude coordinates for the listed Wisconsin city or village center.</p>
+        </div>
+
+        <div class="panel map-copy">
+          <div class="kicker"><i class="fa-solid fa-map-pin"></i> Cities Served</div>
+          <h2>Proudly serving nearby communities.</h2>
+          <p>These are the main cities currently listed for Elevated Pro Detailing. If you are nearby but do not see your city listed, call or text and ask about availability.</p>
+
+          <div class="city-grid" aria-label="Elevated Pro Detailing service cities">
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Fort Atkinson</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Jefferson</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Whitewater</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Lake Mills</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Cambridge</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Johnson Creek</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Watertown</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Milton</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Edgerton</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Helenville</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Ixonia</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Palmyra</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Delafield</div>
+            <div class="city-item"><i class="fa-solid fa-location-dot"></i> Oconomowoc</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mobile-rates">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker"><i class="fa-solid fa-truck-fast"></i> Mobile Service Rates</div>
+          <h2>Travel pricing.</h2>
+          <p>Drop-off is included in the service price. Mobile detailing is available based on distance, schedule availability, and weather conditions.</p>
+        </div>
+
+        <div class="rates-grid">
+          <div class="rate-card"><span>Drop Off</span><strong>Included</strong><p>Bring the vehicle to us.</p></div>
+          <div class="rate-card"><span>0–5 Miles</span><strong>Included</strong><p>Nearby mobile appointments.</p></div>
+          <div class="rate-card"><span>5–20 Miles</span><strong>$25</strong><p>Standard mobile travel fee.</p></div>
+          <div class="rate-card"><span>20–40 Miles</span><strong>$35</strong><p>Extended mobile service area.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker"><i class="fa-solid fa-circle-info"></i> How Service Area Works</div>
+          <h2>Simple booking, clear expectations.</h2>
+        </div>
+
+        <div class="content-grid">
+          <article class="info-card">
+            <i class="fa-solid fa-calendar-check"></i>
+            <h3>Book your appointment</h3>
+            <p>Choose your service online, call, text, or message Elevated Pro Detailing on Facebook.</p>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-route"></i>
+            <h3>Confirm location</h3>
+            <p>For mobile details, your location helps determine availability and any travel pricing.</p>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-cloud-showers-heavy"></i>
+            <h3>Weather matters</h3>
+            <p>Mobile appointments may need to be rescheduled due to rain, storms, high winds, or unsafe conditions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="kicker"><i class="fa-solid fa-sparkles"></i> Book Your Detail</div>
+          <h2>Ready to bring your vehicle back to life?</h2>
+          <a class="phone" href="tel:2624907620">262-490-7620</a>
+          <p>Proudly serving Fort Atkinson, Jefferson, Whitewater, Lake Mills, Cambridge, Johnson Creek, Watertown, Milton, Edgerton, Helenville, Ixonia, Palmyra, Delafield, Oconomowoc, and surrounding Southeast Wisconsin communities.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call Now</a>
+            <a class="btn ghost" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book Online</a>
+            <a class="btn ghost" href="https://www.facebook.com/ElevatedProDetailing" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> @ElevatedProDetailing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Elevated Pro Detailing · Elevatedprodetailing.com
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Real decimal-degree coordinates: [latitude, longitude].
+    // These pins are city/village center points, not hand-positioned pixels.
+    const serviceCities = [
+      { name: "Fort Atkinson", coords: [42.92889, -88.83705], home: true },
+      { name: "Jefferson", coords: [43.00556, -88.80733] },
+      { name: "Whitewater", coords: [42.83362, -88.73233] },
+      { name: "Lake Mills", coords: [43.08139, -88.91177] },
+      { name: "Cambridge", coords: [43.00361, -89.01650] },
+      { name: "Johnson Creek", coords: [43.07611, -88.77427] },
+      { name: "Watertown", coords: [43.19472, -88.72900] },
+      { name: "Milton", coords: [42.77556, -88.94400] },
+      { name: "Edgerton", coords: [42.83528, -89.06761] },
+      { name: "Helenville", coords: [43.01167, -88.70399] },
+      { name: "Ixonia", coords: [43.14334, -88.59732] },
+      { name: "Palmyra", coords: [42.87779, -88.58622] },
+      { name: "Delafield", coords: [43.06084, -88.40371] },
+      { name: "Oconomowoc", coords: [43.11167, -88.49927] }
+    ];
+
+    const mapElement = document.getElementById("serviceMap");
+    if (mapElement && window.L) {
+      const serviceMap = L.map("serviceMap", {
+        scrollWheelZoom: false,
+        zoomControl: true
+      }).setView([43.00, -88.70], 9);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(serviceMap);
+
+      const pinIcon = (home = false) => L.divIcon({
+        className: "",
+        html: `<span class="custom-pin${home ? " home" : ""}"></span>`,
+        iconSize: [26, 26],
+        iconAnchor: [13, 26],
+        tooltipAnchor: [0, -24]
+      });
+
+      const bounds = [];
+      serviceCities.forEach(city => {
+        bounds.push(city.coords);
+        L.marker(city.coords, { icon: pinIcon(city.home) })
+          .addTo(serviceMap)
+          .bindTooltip(city.name, {
+            permanent: true,
+            direction: "top",
+            offset: [0, -18],
+            className: "city-label"
+          })
+          .bindPopup(`<strong>${city.name}, WI</strong><br>Elevated Pro Detailing service area`);
+      });
+
+      serviceMap.fitBounds(bounds, { padding: [46, 46], maxZoom: 10 });
+    }
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileClose = document.querySelector('.mobile-close');
+    const mobileBackdrop = document.getElementById('mobileMenuBackdrop');
+    const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+
+    function openMenu(){
+      document.body.classList.add('menu-open');
+      if(menuToggle) menuToggle.setAttribute('aria-expanded','true');
+    }
+
+    function closeMenu(){
+      document.body.classList.remove('menu-open');
+      if(menuToggle) menuToggle.setAttribute('aria-expanded','false');
+    }
+
+    if(menuToggle) menuToggle.addEventListener('click', openMenu);
+    if(mobileClose) mobileClose.addEventListener('click', closeMenu);
+    if(mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>
