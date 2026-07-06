@@ -226,8 +226,8 @@
     /* Subtle premium scroll animations */
     .reveal{
       opacity:0;
-      transform:translateY(22px);
-      transition:opacity .75s ease, transform .75s ease;
+      transform:translateY(14px);
+      transition:opacity .42s ease-out, transform .42s ease-out;
       transition-delay:var(--reveal-delay, 0ms);
       will-change:opacity, transform;
     }
@@ -236,17 +236,17 @@
       transform:translateY(0);
     }
     .reveal-left{
-      transform:translateX(-24px);
+      transform:translateX(-14px);
     }
     .reveal-right{
-      transform:translateX(24px);
+      transform:translateX(14px);
     }
     .reveal-left.visible,
     .reveal-right.visible{
       transform:translateX(0);
     }
     .reveal-zoom{
-      transform:scale(.97);
+      transform:scale(.985);
     }
     .reveal-zoom.visible{
       transform:scale(1);
@@ -338,7 +338,7 @@
   <div class="topbar">
     <div class="wrap">
       <span><i class="fa-solid fa-location-dot"></i> Fort Atkinson, WI & surrounding areas</span>
-      <span><i class="fa-solid fa-truck-fast"></i> Mobile service + drop off available</span>
+      <span><i class="fa-solid fa-truck-fast"></i> Mobile service + drop-off available</span>
       <span><i class="fa-solid fa-phone"></i> 262-490-7620</span>
     </div>
   </div>
@@ -539,7 +539,7 @@
       if(item.classList.contains('hero-copy')) item.classList.add('reveal-left');
       if(item.classList.contains('rating-card')) item.classList.add('reveal-right');
       const groupIndex = index % 6;
-      item.style.setProperty('--reveal-delay', `${groupIndex * 70}ms`);
+      item.style.setProperty('--reveal-delay', `0ms`);
     });
 
     if('IntersectionObserver' in window){
