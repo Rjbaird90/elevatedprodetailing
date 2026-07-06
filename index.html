@@ -441,16 +441,26 @@
     .rates-card{max-width:760px;margin:0 auto;}
 
     .service-area-section{
-      padding-top:0;
+      padding:72px 0;
     }
     .area-card{
+      position:relative;
+      overflow:hidden;
       border:1px solid var(--line);
       border-radius:36px;
-      padding:34px;
+      padding:38px 34px;
       background:
         radial-gradient(circle at top left, rgba(201,162,39,.16), transparent 44%),
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
       box-shadow:var(--shadow);
+    }
+    .area-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:4px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity:.75;
     }
     .area-card p{
       color:var(--muted);
@@ -710,6 +720,7 @@
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#addons">Add-ons</a>
+        <a href="#service-area">Service Area</a>
         <a href="gallery.html">Gallery</a>
         <a href="reviews.html">Reviews</a>
         <a href="#contact">Contact</a>
@@ -765,6 +776,35 @@
         </div>
       </div>
     </section>
+
+    <section id="service-area" class="service-area-section">
+      <div class="wrap">
+        <div class="area-card">
+          <div class="section-head center">
+            <div class="kicker">Service Area</div>
+            <h2>Proudly serving Southeast Wisconsin.</h2>
+            <p>Elevated Pro Detailing provides mobile and drop-off detailing services throughout Fort Atkinson and nearby communities. Whether you need an interior detail, exterior detail, Signature Restore, paint enhancement, or paint correction, we bring careful, professional auto detailing to drivers across the area.</p>
+          </div>
+
+          <div class="area-grid" aria-label="Elevated Pro Detailing service areas">
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Fort Atkinson</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Jefferson</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Whitewater</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Lake Mills</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Cambridge</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Johnson Creek</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Watertown</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Milton</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Edgerton</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Helenville</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Ixonia</div>
+            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Palmyra</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
     <section id="services">
       <div class="wrap">
@@ -954,34 +994,6 @@
         </div>
       </div>
     </section>
-
-    <section id="service-area" class="service-area-section">
-      <div class="wrap">
-        <div class="area-card">
-          <div class="section-head center">
-            <div class="kicker">Service Area</div>
-            <h2>Proudly serving Southeast Wisconsin.</h2>
-            <p>Elevated Pro Detailing provides mobile and drop-off detailing services throughout Fort Atkinson and nearby communities. Whether you need an interior detail, exterior detail, Signature Restore, paint enhancement, or paint correction, we bring careful, professional auto detailing to drivers across the area.</p>
-          </div>
-
-          <div class="area-grid" aria-label="Elevated Pro Detailing service areas">
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Fort Atkinson</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Jefferson</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Whitewater</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Lake Mills</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Cambridge</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Johnson Creek</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Watertown</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Milton</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Edgerton</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Helenville</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Ixonia</div>
-            <div class="area-item"><i class="fa-solid fa-location-dot"></i> Palmyra</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <section id="mobile-rates">
       <div class="wrap">
