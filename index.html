@@ -311,6 +311,9 @@
       grid-template-columns:repeat(3, 1fr);
       gap:18px;
     }
+    .home-service-grid{
+      grid-template-columns:repeat(4, 1fr);
+    }
     .service-card{
       min-height:100%;
       border:1px solid var(--white-line);
@@ -357,6 +360,7 @@
       margin-bottom:10px;
     }
     .service-card p{color:var(--muted);line-height:1.55;margin:0 0 18px;}
+    .home-service-card p{margin-bottom:0;}
     .service-card ul{padding-left:18px;margin:0 0 22px;color:var(--muted);line-height:1.65;}
     .price-list{display:grid;gap:10px;margin-top:auto;}
     .price-row{
@@ -369,6 +373,11 @@
       color:var(--muted);
     }
     .price-row strong{font-size:24px;color:var(--text);}
+    .home-service-actions{
+      justify-content:center;
+      margin-top:28px;
+      margin-bottom:0;
+    }
 
     .split{
       display:grid;
@@ -613,6 +622,7 @@
       .hero-grid,.split{grid-template-columns:1fr;}
       .logo-card{min-height:420px;}
       .service-grid{grid-template-columns:1fr 1fr;}
+      .home-service-grid{grid-template-columns:1fr 1fr;}
       .addon-grid,.process-grid{grid-template-columns:1fr 1fr;}
       .section-head{display:block;}
     }
@@ -797,8 +807,7 @@
       </div>
 
       <nav class="nav-links" id="mainNav" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
+        <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <a href="reviews.html">Reviews</a>
         <a href="service-area.html">Service Area</a>
@@ -821,7 +830,7 @@
 
           <div class="hero-actions">
             <a class="btn" href="tel:2624907620"><i class="fa-solid fa-phone"></i> Call or Text to Book</a>
-            <a class="btn ghost" href="#services"><i class="fa-solid fa-list-check"></i> View Services</a>
+            <a class="btn ghost" href="services.html"><i class="fa-solid fa-list-check"></i> View Services</a>
           </div>
 
           <div class="trust-row">
@@ -893,160 +902,38 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="kicker">Detailing Services</div>
-            <h2>Professional auto detailing services in Fort Atkinson, WI.</h2>
+            <div class="kicker">Services</div>
+            <h2>Focused detailing options without the clutter.</h2>
           </div>
-          <p>Start with a focused interior or exterior detail, go all-in with Signature Restore, or step up to paint enhancement and correction for more gloss and clarity.</p>
+          <p>Choose a quick refresh, a full Signature Restore, paint polishing, or custom work for larger and specialty vehicles. Full service details and pricing now live on one dedicated page.</p>
         </div>
 
-        <div class="service-grid">
-          <article class="service-card">
-            <span class="badge">Exterior</span>
-            <h3>Exterior Detail</h3>
-            <p>Clean, glossy finish with safe wash methods.</p>
-            <ul>
-              <li>Hand wash and safe dry process</li>
-              <li>Bug and tar removal</li>
-              <li>Door jambs cleaned and wiped down</li>
-              <li>Deep wheel, tire and wheel well cleaning</li>
-              <li>Crystal-clear window cleaning</li>
-              <li>Tire dressing application</li>
-              <li>Clean, spot-free finish for maximum shine</li>
-            </ul>
-            <div class="price-list">
-              <div class="price-row"><span>Sedan</span><strong>$65</strong></div>
-              <div class="price-row"><span>SUV</span><strong>$80</strong></div>
-              <div class="price-row"><span>Large SUV/Truck</span><strong>$95</strong></div>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <span class="badge">Interior</span>
-            <h3>Interior Detail</h3>
-            <p>Removes buildup and refreshes your interior.</p>
-            <ul>
-              <li>Thorough interior vacuuming</li>
-              <li>Dash, console & door panels cleaned</li>
-              <li>Seats cleaned and conditioned</li>
-              <li>Light carpet extract</li>
-              <li>Floor mat cleaning</li>
-              <li>Door jamb wipe-down</li>
-              <li>Interior glass cleaned streak-free</li>
-              <li>Vents, cup holders & crevices detailed</li>
-              <li>Trunk/cargo area vacuumed</li>
-            </ul>
-            <div class="price-list">
-              <div class="price-row"><span>Sedan</span><strong>$90</strong></div>
-              <div class="price-row"><span>SUV</span><strong>$105</strong></div>
-              <div class="price-row"><span>Large SUV/Truck</span><strong>$120</strong></div>
-            </div>
-          </article>
-
-          <article class="service-card featured">
+        <div class="service-grid home-service-grid">
+          <article class="service-card home-service-card featured">
             <span class="badge">Most Popular</span>
             <h3>Signature Restore</h3>
-            <p>Our most complete detail package for a full vehicle refresh, inside and out.</p>
-            <ul>
-              <li>Everything included in our Interior and Exterior packages</li>
-              <li>Deep interior cleaning of carpets, seats, dashboard, console, panels, and trim</li>
-              <li>Thorough exterior hand wash to remove dirt, grime, bugs, and road contaminants</li>
-              <li>Light carpet extraction</li>
-              <li>Wheel, tire, and wheel well cleaning</li>
-              <li>Streak-free interior and exterior glass cleaning</li>
-              <li>Tire shine application</li>
-              <li>Final detail touches</li>
-            </ul>
-            <div class="price-list">
-              <div class="price-row"><span>Sedan</span><strong>$140</strong></div>
-              <div class="price-row"><span>SUV</span><strong>$165</strong></div>
-              <div class="price-row"><span>Large SUV/Truck</span><strong>$190</strong></div>
-            </div>
+            <p>A complete interior and exterior reset for daily drivers, family vehicles, and vehicles that need the full refresh.</p>
           </article>
-
-          <article class="service-card">
-            <span class="badge">Gloss Boost</span>
-            <h3>1-Step Paint Enhancement</h3>
-            <p>A gloss-focused machine polish for light swirls, haze, and oxidation.</p>
-            <ul>
-              <li>Exterior wash and paint decontamination</li>
-              <li>Single-stage machine polish to boost gloss and clarity</li>
-              <li>Helps reduce light swirl marks and minor defects</li>
-              <li>Great for newer vehicles or maintenance polishing</li>
-            </ul>
-            <div class="price-list">
-              <div class="price-row"><span>Sedan</span><strong>$250</strong></div>
-              <div class="price-row"><span>SUV</span><strong>$300</strong></div>
-              <div class="price-row"><span>Large SUV/Truck</span><strong>$350</strong></div>
-            </div>
+          <article class="service-card home-service-card">
+            <span class="badge">Interior & Exterior</span>
+            <h3>Detail Packages</h3>
+            <p>Focused interior or exterior options for vehicles that need targeted cleaning, shine, and care.</p>
           </article>
-
-          <article class="service-card">
-            <span class="badge">Correction</span>
-            <h3>2-Step Paint Correction</h3>
-            <p>Compound and polish process for heavier defects and maximum paint clarity.</p>
-            <ul>
-              <li>Exterior wash and paint decontamination</li>
-              <li>Compounding step to cut heavier swirls, oxidation, and defects</li>
-              <li>Finishing polish to refine gloss, depth, and clarity</li>
-              <li>Recommended before ceramic coating</li>
-            </ul>
-            <div class="price-list">
-              <div class="price-row"><span>Sedan</span><strong>$500</strong></div>
-              <div class="price-row"><span>SUV</span><strong>$600</strong></div>
-              <div class="price-row"><span>Large SUV/Truck</span><strong>$700</strong></div>
-            </div>
+          <article class="service-card home-service-card">
+            <span class="badge">Paint Services</span>
+            <h3>Enhancement & Correction</h3>
+            <p>Gloss-focused polishing and heavier correction options for swirls, haze, oxidation, and clarity.</p>
           </article>
-
-          <article class="service-card">
-            <span class="badge">Simple Booking</span>
-            <h3>Not sure what to pick?</h3>
-            <p>Signature Restore is the easiest choice when you want the vehicle fully refreshed inside and out.</p>
-            <ul>
-              <li>Great for daily drivers</li>
-              <li>Good balance of price and results</li>
-              <li>Works well before selling or after heavy use</li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn" href="Appointment.html">Book Now</a>
-              <a class="btn ghost" href="tel:2624907620">Ask First</a>
-            </div>
+          <article class="service-card home-service-card">
+            <span class="badge">Custom Work</span>
+            <h3>Boats, RVs & More</h3>
+            <p>Custom quotes available for boats, RVs, motorcycles, enclosed trailers, convertible tops, and specialty work.</p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section id="pricing">
-      <div class="wrap split">
-        <div class="panel">
-          <div class="kicker">Pricing</div>
-<h2>Find the package that's right for your vehicle.</h2>
-<p>Compare our detailing packages, pricing, and available add-ons to choose the service that best fits your needs.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#" onclick="openPricingModal(); return false;">View Pricing</a>
-            <a class="btn ghost" href="Appointment.html">Book Appointment</a>
-          </div>
-        </div>
-        <div class="panel">
-          <img class="flyer-img" src="assets/images/pricing/Flyer 7-5.png" alt="Elevated Pro Detailing pricing flyer" />
-        </div>
-      </div>
-    </section>
-
-    <section id="addons">
-      <div class="wrap">
-        <div class="section-head center">
-          <div class="kicker">Add-ons</div>
-          <h2>Make the detail fit your vehicle.</h2>
-        </div>
-
-        <div class="addon-grid">
-          <div class="addon"><span>Pet Hair Removal</span><strong>$50</strong></div>
-          <div class="addon"><span>Heavy Stain Treatment</span><strong>$40</strong></div>
-          <div class="addon"><span>Spray Wax</span><strong>$20</strong></div>
-          <div class="addon"><span>Carpet Shampoo Extraction</span><strong>$30</strong></div>
-          <div class="addon"><span>Odor Eliminator Bomb</span><strong>$30</strong></div>
-          <div class="addon"><span>Ceramic Coating</span><strong>$70</strong></div>
-          <div class="addon"><span>Convertible Top Restore & Protect</span><strong>$60</strong></div>
+        <div class="hero-actions home-service-actions">
+          <a class="btn" href="services.html"><i class="fa-solid fa-list-check"></i> View Services & Pricing</a>
+          <a class="btn ghost" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
         </div>
       </div>
     </section>
@@ -1078,26 +965,6 @@
       </div>
     </section>
 
-    <section id="mobile-rates">
-      <div class="wrap">
-        <div class="section-head center">
-          <div class="kicker">Mobile Service Rates</div>
-          <h2>Travel pricing.</h2>
-          <p>Drop-off is included in service pricing. Mobile appointments are available throughout Fort Atkinson and nearby Southeast Wisconsin communities, with travel pricing based on distance.</p>
-        </div>
-
-        <div class="panel rates-card">
-          <div class="price-list">
-            <div class="price-row"><span>Drop Off</span><strong>Included</strong></div>
-            <div class="price-row"><span>0–5 Miles</span><strong>Included</strong></div>
-            <div class="price-row"><span>5–20 Miles</span><strong>$25</strong></div>
-            <div class="price-row"><span>20–40 Miles</span><strong>$35</strong></div>
-            <div class="price-row"><span>40+ Miles</span><strong>Inquire</strong></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="contact">
       <div class="wrap">
         <div class="contact-box">
@@ -1120,18 +987,14 @@
       </div>
     </section>
 
-    <div id="pricingModal" class="pricing-modal" onclick="closePricingModal()">
-      <span class="pricing-close">&times;</span>
-      <img src="assets/images/pricing/Flyer 7-5.png" alt="Elevated Pro Detailing pricing flyer" onclick="event.stopPropagation()">
-    </div>
-
   </main>
 
   <footer>
     <div class="wrap">
       <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:14px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; font-size:12px;">
         <a href="#top">Home</a>
-        <a href="#services">Services</a>
+        <a href="services.html">Services</a>
+        <a href="services.html#pricing">Pricing</a>
         <a href="gallery.html">Gallery</a>
         <a href="reviews.html">Reviews</a>
         <a href="service-area.html">Service Area</a>
@@ -1147,16 +1010,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function openPricingModal(){
-      document.getElementById("pricingModal").classList.add("active");
-    }
-
-    function closePricingModal(){
-      document.getElementById("pricingModal").classList.remove("active");
-    }
-
-
-
     const revealSelectors = [
       '.hero-copy',
       '.hero-media',
@@ -1164,10 +1017,8 @@
       '.section-head',
       '.service-card',
       '.panel',
-      '.addon',
       '.step',
       '.review-card',
-      '.rates-card',
       '.area-card',
       '.contact-box'
     ];
