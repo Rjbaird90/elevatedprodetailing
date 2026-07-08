@@ -208,22 +208,81 @@
 
     .hero-media{
       position:relative;
-      border-radius:36px;
+      border-radius:34px;
       background:
-        linear-gradient(140deg, rgba(201,162,39,.32), transparent 40%),
+        linear-gradient(140deg, rgba(201,162,39,.3), transparent 44%),
         rgba(255,255,255,.045);
       border:1px solid var(--line);
-      padding:18px;
+      padding:14px;
       box-shadow:var(--shadow);
     }
-    .hero-media::before{
+    .hero-video-card{
+      position:relative;
+      min-height:500px;
+      aspect-ratio:4 / 5;
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:#000;
+      isolation:isolate;
+    }
+    .hero-showcase-video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      filter:saturate(1.06) contrast(1.04);
+    }
+    .hero-video-card::after{
       content:"";
       position:absolute;
-      width:170px;height:170px;
-      border-radius:50%;
-      background:rgba(201,162,39,.22);
-      filter:blur(50px);
-      top:-30px;right:-28px;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.2) 45%, rgba(0,0,0,.82) 100%),
+        linear-gradient(90deg, rgba(0,0,0,.44), transparent 52%);
+    }
+    .video-overlay{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:24px;
+      z-index:2;
+      display:grid;
+      gap:8px;
+    }
+    .video-kicker{
+      display:inline-flex;
+      width:max-content;
+      max-width:100%;
+      align-items:center;
+      gap:8px;
+      padding:8px 11px;
+      border:1px solid rgba(201,162,39,.5);
+      border-radius:999px;
+      background:rgba(0,0,0,.54);
+      color:#f4d986;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .video-overlay strong{
+      max-width:380px;
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:clamp(27px, 3vw, 42px);
+      line-height:.96;
+      letter-spacing:-.04em;
+      color:var(--text);
+      text-shadow:0 8px 26px rgba(0,0,0,.75);
+    }
+    .video-overlay span{
+      max-width:390px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      text-shadow:0 6px 20px rgba(0,0,0,.7);
     }
     .logo-card{
       position:relative;
@@ -620,6 +679,7 @@
 
     @media (max-width: 980px){
       .hero-grid,.split{grid-template-columns:1fr;}
+      .hero-video-card{min-height:420px;aspect-ratio:16 / 10;}
       .logo-card{min-height:420px;}
       .service-grid{grid-template-columns:1fr 1fr;}
       .home-service-grid{grid-template-columns:1fr 1fr;}
@@ -693,6 +753,10 @@
       .nav-links a:last-child{border-bottom:0;}
 
       .hero{padding-top:44px;}
+      .hero-video-card{min-height:340px;aspect-ratio:4 / 5;}
+      .video-overlay{left:18px;right:18px;bottom:18px;}
+      .video-overlay strong{font-size:30px;}
+      .video-overlay span{font-size:13px;}
       .trust-row,.service-grid,.addon-grid,.process-grid,.area-grid{grid-template-columns:1fr;}
       section{padding:52px 0;}
       .logo-card{min-height:360px;padding:22px;}
@@ -841,27 +905,17 @@
         </div>
 
         <div class="hero-media">
-          <div class="logo-card">
-            <img src="assets/images/branding/new elevated 2.png" alt="Elevated Pro Detailing" />
-            <div class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-car-side"></i></div>
-              <div>
-                <strong>Clean. Restored. Protected.</strong>
-                <span>Professional detailing for cars, SUVs, trucks, and daily drivers.</span>
-              </div>
+          <div class="hero-video-card" aria-label="Foam cannon detailing process video">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/images/gallery/Mike Before & After2.png" class="hero-showcase-video">
+              <source src="assets/videos/foam-cannon-web.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="video-overlay">
+              <div class="video-kicker"><i class="fa-solid fa-droplet"></i> See The Process</div>
+              <strong>Foam cannon wash with a careful finish.</strong>
+              <span>A cleaner first impression, smoother playback, and a more premium feel right at the top of the page.</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="video-section">
-      <div class="wrap">
-        <div class="video-wrap">
-          <video autoplay muted loop playsinline controls class="showcase-video">
-            <source src="assets/videos/foam-cannon-web.mp4" type="video/mp4">
-            Your browser does not support video.
-          </video>
         </div>
       </div>
     </section>
