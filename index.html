@@ -54,6 +54,24 @@
     img,video{max-width:100%;display:block;}
     .wrap{width:min(1180px, calc(100% - 34px));margin:0 auto;}
 
+    .special-bar{
+      background:linear-gradient(90deg,#8a6410 0%,#e0bd50 48%,#8a6410 100%);
+      color:#080705;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-align:center;
+    }
+    .special-bar a{
+      min-height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:8px 17px;
+    }
+    .special-bar a:hover{text-decoration:underline;}
+
     .topbar{
       background:#000;
       border-bottom:1px solid var(--white-line);
@@ -437,6 +455,42 @@
       margin-top:28px;
       margin-bottom:0;
     }
+    .monthly-special{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      overflow:hidden;
+      border:1px solid rgba(201,162,39,.58);
+      border-radius:34px;
+      background:
+        radial-gradient(circle at 90% 0%,rgba(201,162,39,.2),transparent 42%),
+        linear-gradient(135deg,#15130e,#090909);
+      box-shadow:var(--shadow);
+    }
+    .monthly-special-media{min-height:390px;position:relative;}
+    .monthly-special-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,transparent 55%,rgba(9,9,9,.82));
+      pointer-events:none;
+    }
+    .monthly-special-media img{width:100%;height:100%;object-fit:cover;}
+    .monthly-special-copy{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      padding:46px;
+    }
+    .monthly-special-copy h2{max-width:620px;}
+    .monthly-special-copy p{
+      max-width:600px;
+      margin:18px 0 26px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.65;
+    }
+    .monthly-special-copy strong{color:var(--text);}
 
     .split{
       display:grid;
@@ -683,6 +737,9 @@
       .logo-card{min-height:420px;}
       .service-grid{grid-template-columns:1fr 1fr;}
       .home-service-grid{grid-template-columns:1fr 1fr;}
+      .monthly-special{grid-template-columns:1fr;}
+      .monthly-special-media{min-height:300px;}
+      .monthly-special-media::after{background:linear-gradient(180deg,transparent 55%,rgba(9,9,9,.9));}
       .addon-grid,.process-grid{grid-template-columns:1fr 1fr;}
       .section-head{display:block;}
     }
@@ -695,6 +752,9 @@
         font-size:12px;
       }
       .topbar span:nth-child(2){display:none;}
+      .special-bar{font-size:12px;}
+      .monthly-special-copy{padding:28px 22px 32px;}
+      .monthly-special-copy p{font-size:16px;}
 
       header{position:sticky;top:0;}
       .nav{
@@ -859,6 +919,14 @@
 </head>
 
 <body>
+  <div class="special-bar">
+    <a href="Appointment.html" aria-label="Book the July Signature Restore special">
+      <i class="fa-solid fa-gift"></i>
+      July Special &ndash; Free Spray Wax with Signature Restore
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
   <div class="topbar">
     <div class="wrap">
       <span><i class="fa-solid fa-location-dot"></i> Fort Atkinson, WI & surrounding areas</span>
@@ -999,6 +1067,22 @@
         <div class="hero-actions home-service-actions">
           <a class="btn" href="services.html"><i class="fa-solid fa-list-check"></i> View Services & Pricing</a>
           <a class="btn ghost" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="monthly-special">
+      <div class="wrap">
+        <div class="monthly-special">
+          <div class="monthly-special-media">
+            <img src="assets/images/gallery/Mike Before & After2.png" alt="Detailed vehicle before and after transformation" />
+          </div>
+          <div class="monthly-special-copy">
+            <div class="kicker"><i class="fa-solid fa-sparkles"></i> July Special</div>
+            <h2>Book a Signature Restore and get a free Spray Wax.</h2>
+            <p>Give your vehicle the complete interior and exterior reset, then finish it with <strong>complimentary Spray Wax</strong> for extra gloss and protection.</p>
+            <a class="btn" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book the Special</a>
+          </div>
         </div>
       </div>
     </section>
