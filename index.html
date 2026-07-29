@@ -466,7 +466,14 @@
         linear-gradient(135deg,#15130e,#090909);
       box-shadow:var(--shadow);
     }
-    .monthly-special-media{min-height:390px;position:relative;}
+    .monthly-special-media{
+      min-height:390px;
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:3px;
+      background:var(--gold);
+    }
     .monthly-special-media::after{
       content:"";
       position:absolute;
@@ -474,7 +481,23 @@
       background:linear-gradient(90deg,transparent 55%,rgba(9,9,9,.82));
       pointer-events:none;
     }
-    .monthly-special-media img{width:100%;height:100%;object-fit:cover;}
+    .monthly-special-photo{position:relative;min-width:0;overflow:hidden;}
+    .monthly-special-photo img{width:100%;height:100%;object-fit:cover;}
+    .monthly-special-photo span{
+      position:absolute;
+      left:16px;
+      bottom:16px;
+      z-index:1;
+      padding:7px 12px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      background:rgba(0,0,0,.78);
+      color:var(--text);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
     .monthly-special-copy{
       display:flex;
       flex-direction:column;
@@ -835,8 +858,8 @@
     "name": "Elevated Pro Detailing",
     "url": "https://elevatedprodetailing.com/",
     "telephone": "+1-262-490-7620",
-    "image": "https://elevatedprodetailing.com/assets/images/branding/elevated-logo-slick-transparent-v2.png",
-    "logo": "https://elevatedprodetailing.com/assets/images/branding/elevated-logo-slick-transparent-v2.png",
+    "image": "https://elevatedprodetailing.com/assets/images/branding/elevated-logo-slick-transparent.png",
+    "logo": "https://elevatedprodetailing.com/assets/images/branding/elevated-logo-slick-transparent.png",
     "description": "Elevated Pro Detailing provides mobile and drop-off auto detailing services in Fort Atkinson, WI and surrounding Southeast Wisconsin communities, including interior detailing, exterior detailing, Signature Restore packages, paint enhancement, paint correction, fleet detailing, commercial vehicle detailing, and add-on services.",
     "priceRange": "$$",
     "address": {
@@ -938,7 +961,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Elevated Pro Detailing Home">
-        <img src="assets/images/branding/elevated-logo-slick-transparent-v2.png" alt="Elevated Pro Detailing logo" />
+        <img src="assets/images/branding/elevated-logo-slick-transparent.png" alt="Elevated Pro Detailing logo" />
       </a>
 
       <div class="mobile-actions">
@@ -1075,7 +1098,14 @@
       <div class="wrap">
         <div class="monthly-special">
           <div class="monthly-special-media">
-            <img src="assets/images/gallery/Mike Before & After2.png" alt="Detailed vehicle before and after transformation" />
+            <div class="monthly-special-photo">
+              <img src="assets/images/gallery/pat-exterior-before.jpg" alt="Red vehicle exterior before detailing" />
+              <span>Before</span>
+            </div>
+            <div class="monthly-special-photo">
+              <img src="assets/images/gallery/pat-exterior-after.jpg" alt="Red vehicle exterior after detailing" />
+              <span>After</span>
+            </div>
           </div>
           <div class="monthly-special-copy">
             <div class="kicker"><i class="fa-solid fa-sparkles"></i> July Special</div>
