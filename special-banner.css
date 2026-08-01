@@ -1,0 +1,30 @@
+.special-bar {
+  background: linear-gradient(90deg, #8a6410 0%, #e0bd50 48%, #8a6410 100%);
+  color: #080705;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.special-bar a {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 17px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.special-bar a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .special-bar {
+    font-size: 12px;
+  }
+}
