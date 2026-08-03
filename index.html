@@ -468,13 +468,11 @@
       box-shadow:var(--shadow);
     }
     .monthly-special-media{
-      min-height:390px;
-      position:relative;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:3px;
-      background:var(--gold);
-    }
+  min-height:390px;
+  position:relative;
+  overflow:hidden;
+  background:#000;
+}
     .monthly-special-media::after{
       content:"";
       position:absolute;
@@ -483,22 +481,17 @@
       pointer-events:none;
     }
     .monthly-special-photo{position:relative;min-width:0;overflow:hidden;}
-    .monthly-special-photo img{width:100%;height:100%;object-fit:cover;}
-    .monthly-special-photo span{
-      position:absolute;
-      left:16px;
-      bottom:16px;
-      z-index:1;
-      padding:7px 12px;
-      border:1px solid rgba(255,255,255,.22);
-      border-radius:999px;
-      background:rgba(0,0,0,.78);
-      color:var(--text);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
+   .monthly-special-photo{
+  width:100%;
+  height:100%;
+}
+
+.monthly-special-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
     .monthly-special-copy{
       display:flex;
       flex-direction:column;
