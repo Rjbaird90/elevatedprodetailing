@@ -472,13 +472,11 @@
       box-shadow:var(--shadow);
     }
     .monthly-special-media{
-      min-height:390px;
-      position:relative;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:3px;
-      background:var(--gold);
-    }
+  min-height:390px;
+  position:relative;
+  overflow:hidden;
+  background:#000;
+}
     .monthly-special-media::after{
       content:"";
       position:absolute;
@@ -487,22 +485,17 @@
       pointer-events:none;
     }
     .monthly-special-photo{position:relative;min-width:0;overflow:hidden;}
-    .monthly-special-photo img{width:100%;height:100%;object-fit:cover;}
-    .monthly-special-photo span{
-      position:absolute;
-      left:16px;
-      bottom:16px;
-      z-index:1;
-      padding:7px 12px;
-      border:1px solid rgba(255,255,255,.22);
-      border-radius:999px;
-      background:rgba(0,0,0,.78);
-      color:var(--text);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
+   .monthly-special-photo{
+  width:100%;
+  height:100%;
+}
+
+.monthly-special-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
     .monthly-special-copy{
       display:flex;
       flex-direction:column;
@@ -1092,27 +1085,38 @@
     </section>
 
     <section id="monthly-special">
-      <div class="wrap">
-        <div class="monthly-special">
-          <div class="monthly-special-media">
-            <div class="monthly-special-photo">
-              <img src="assets/images/gallery/pat-exterior-before.jpg" alt="Red vehicle exterior before detailing" />
-              <span>Before</span>
-            </div>
-            <div class="monthly-special-photo">
-              <img src="assets/images/gallery/pat-exterior-after.jpg" alt="Red vehicle exterior after detailing" />
-              <span>After</span>
-            </div>
-          </div>
-          <div class="monthly-special-copy">
-            <div class="kicker"><i class="fa-solid fa-sparkles"></i> August Special</div>
-            <h2>Book a Signature Restore and get a free Odor Bomb.</h2>
-            <p>Give your vehicle the complete interior and exterior reset it deserves, then enjoy a <strong>FREE Odor Eliminator Bomb</strong> to help remove lingering odors and leave the cabin feeling fresher. <em>Offer valid with Signature Restore service. Add the sale item when booking and the discount will be applied at checkout.</em></p>
-            <a class="btn" href="Appointment.html"><i class="fa-solid fa-calendar-check"></i> Book the Special</a>
-          </div>
+  <div class="wrap">
+    <div class="monthly-special">
+      <div class="monthly-special-media">
+        <div class="monthly-special-photo">
+          <img src="assets/images/gallery/August Special.jpg"
+               alt="August Signature Restore Special - Free Odor Bomb with Signature Restore">
         </div>
       </div>
-    </section>
+
+      <div class="monthly-special-copy">
+        <div class="kicker">
+          <i class="fa-solid fa-sparkles"></i> August Special
+        </div>
+
+        <h2>Book a Signature Restore and get a FREE Odor Bomb.</h2>
+
+        <p>
+          Give your vehicle the complete interior and exterior reset it deserves,
+          then enjoy a <strong>FREE Odor Eliminator Bomb</strong> to help remove
+          lingering odors and leave the cabin feeling fresher.
+          <em>Offer valid with any Signature Restore service.
+          The free Odor Bomb must be requested when booking to claim this offer.</em>
+        </p>
+
+        <a class="btn" href="Appointment.html">
+          <i class="fa-solid fa-calendar-check"></i>
+          Book the Special
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section>
       <div class="wrap">
