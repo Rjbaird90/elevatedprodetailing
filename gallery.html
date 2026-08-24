@@ -486,6 +486,21 @@
         font-size: 12px;
         font-weight: 800;
       }
+      .gallery-caption {
+        position: absolute;
+        left: 14px;
+        top: 14px;
+        z-index: 1;
+        max-width: calc(100% - 28px);
+        padding: 9px 12px;
+        border: 1px solid rgba(201, 162, 39, 0.5);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.78);
+        color: #f4d986;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.25;
+      }
       .compare-card {
         --position: 50%;
         grid-column: span 2;
@@ -727,6 +742,18 @@
                 alt="Red sedan exterior before and after professional detailing"
                 loading="lazy"
               />
+            </button>
+            <button
+              class="gallery-item"
+              onclick="openLightbox('assets/images/services/1-step-paint-correction-before-after.jpg')"
+              aria-label="View 1-step paint correction before and after result"
+            >
+              <img
+                src="assets/images/services/1-step-paint-correction-before-after.jpg"
+                alt="Honda hood before and after a 1-step paint correction that removed bug etching"
+                loading="lazy"
+              />
+              <span class="gallery-caption">1-Step Paint Correction &bull; Bug Etching Removed</span>
             </button>
             <button
               class="gallery-item"
