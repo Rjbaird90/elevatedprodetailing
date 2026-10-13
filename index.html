@@ -877,6 +877,13 @@
       .menu-toggle{padding:9px 8px;}
       .hero-media{min-width:0;}
     }
+    .referral-card{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px;padding:40px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(135deg,#15130e,#050505);overflow:hidden;}
+    .referral-copy h2{margin:12px 0 18px;font-size:clamp(32px,4vw,48px);}
+    .referral-copy h2 span{color:var(--gold);}
+    .referral-copy p{color:var(--muted);line-height:1.8;max-width:480px;}
+    .referral-copy .btn{margin-top:14px;white-space:normal;text-align:center;}
+    .referral-art{width:100%;height:auto;border-radius:18px;}
+    @media(max-width:760px){.referral-card{grid-template-columns:1fr;padding:26px;gap:24px;}.referral-copy h2{font-size:34px;}}
   </style>
 
   <script type="application/ld+json">
@@ -1154,6 +1161,20 @@
       </div>
     </section>
 
+    <section id="referral-program" aria-labelledby="referral-title">
+      <div class="wrap">
+        <div class="referral-card">
+          <div class="referral-copy">
+            <div class="kicker">Good Friends. Great Details.</div>
+            <h2 id="referral-title">Refer a friend.<br><span>You both get 10% off.</span></h2>
+            <p>A fresh detail is even better when you share it. Refer a friend to Elevated Pro Detailing and you’ll both receive 10% off.</p>
+            <p>Have your friend mention your name when booking so we can apply your referral savings.</p>
+            <a class="btn" href="sms:2624907620">Text Us About Referrals</a>
+          </div>
+          <img class="referral-art" src="assets/images/referral-friends.png" alt="Two friends fist bump beside their freshly detailed cars" width="1536" height="1024" loading="lazy" />
+        </div>
+      </div>
+    </section>
     <section id="fleet-detailing">
       <div class="wrap">
         <div class="section-head center">
