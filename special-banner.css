@@ -23,8 +23,26 @@
   text-decoration: underline;
 }
 
+.nav-links .mobile-nav-book {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .special-bar {
     font-size: 12px;
+  }
+
+  .nav-links a.mobile-nav-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 14px 12px;
+    border: 1px solid rgba(240, 208, 111, 0.72);
+    border-radius: 13px;
+    color: #090909;
+    background: linear-gradient(135deg, #f0d06f 0%, #c9a227 45%, #8f6d12 100%);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.2);
   }
 }
