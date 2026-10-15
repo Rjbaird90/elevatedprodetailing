@@ -39,10 +39,16 @@
     gap: 8px;
     margin-top: 10px;
     padding: 14px 12px;
-    border: 1px solid rgba(240, 208, 111, 0.72);
+    border: 1px solid rgba(240, 208, 111, 0.72) !important;
     border-radius: 13px;
-    color: #090909;
-    background: linear-gradient(135deg, #f0d06f 0%, #c9a227 45%, #8f6d12 100%);
+    color: #090909 !important;
+    background: linear-gradient(135deg, #f0d06f 0%, #c9a227 45%, #8f6d12 100%) !important;
     box-shadow: 0 8px 24px rgba(201, 162, 39, 0.2);
+  }
+
+  .nav-links a.mobile-nav-book:hover,
+  .nav-links a.mobile-nav-book:focus-visible {
+    color: #090909 !important;
+    background: linear-gradient(135deg, #f6da82 0%, #d5b33a 45%, #9d7817 100%) !important;
   }
 }
