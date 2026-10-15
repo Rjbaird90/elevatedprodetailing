@@ -23,63 +23,8 @@
   text-decoration: underline;
 }
 
-.mobile-booking-bar {
-  display: none;
-}
-
 @media (max-width: 760px) {
   .special-bar {
     font-size: 12px;
-  }
-
-  .mobile-booking-bar {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    display: flex;
-    gap: 10px;
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(5, 5, 5, 0.94);
-    border-top: 1px solid rgba(201, 162, 39, 0.42);
-    box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .mobile-booking-bar a {
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 999px;
-    font-family: Inter, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    line-height: 1;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .mobile-booking-primary {
-    flex: 1 1 auto;
-    color: #090909;
-    background: linear-gradient(135deg, #f0d06f 0%, #c9a227 45%, #8f6d12 100%);
-    border: 1px solid rgba(240, 208, 111, 0.7);
-    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.25);
-  }
-
-  .mobile-booking-call {
-    flex: 0 0 auto;
-    padding: 0 18px;
-    color: #f7f2e7;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .mobile-booking-bar + footer {
-    margin-bottom: calc(78px + env(safe-area-inset-bottom));
   }
 }
