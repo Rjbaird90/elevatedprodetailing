@@ -1,0 +1,61 @@
+.winter-notice {
+  background: linear-gradient(110deg, #172334, #111a25 70%);
+  border-block: 1px solid #34475d;
+  color: #f3f7fc;
+  padding: 22px 0;
+}
+
+.winter-notice .winter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px 32px;
+  align-items: center;
+}
+
+.winter-notice .winter-label {
+  color: #a9d2fa;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.winter-notice h2 {
+  margin: 0 0 7px;
+  color: #f3f7fc;
+  font-size: clamp(21px, 3vw, 30px);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+
+.winter-notice p {
+  margin: 0;
+  color: #d3dfeb;
+  line-height: 1.55;
+}
+
+.winter-notice p + p {
+  margin-top: 3px;
+}
+
+.winter-notice .winter-link {
+  justify-self: start;
+  padding: 10px 15px;
+  border: 1px solid #718ba5;
+  border-radius: 10px;
+  color: #f3f7fc;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.winter-notice .winter-link:hover,
+.winter-notice .winter-link:focus-visible {
+  background: #293d52;
+}
+
+@media (max-width: 700px) {
+  .winter-notice .winter-layout {
+    grid-template-columns: 1fr;
+  }
+}
